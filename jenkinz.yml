@@ -1,0 +1,29 @@
+version: "3.4"
+
+services:
+  jenkinz:
+    build:
+      context: ./jenkinz-env
+    image: jenkinz-env:latest
+    container_name: jenkinz
+    privileged: true
+    networks:
+      - jenkinz 
+    ports:
+      - "8080:8080"
+    volumes:
+        - jenkinz-data:/var/lib/docker
+        - type: bind
+          source: ./jenkinz-project
+          target: /jenkinz/project
+        - type: bind
+          source: ./jenkinz-workspace
+          target: /jenkinz/workspace
+
+volumes:
+  jenkinz-data:
+
+networks:
+  jenkinz:
+    driver: bridge 
+    attachable: true

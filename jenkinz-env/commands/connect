@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# connects build agent to jenkins 
+
+if [ "$#" -ne 2 ]; then
+    echo "Wrong number of parameters"
+    echo "Expecting 2 parameters : API_TOKEN, AGENT_LABEL"
+    exit 2
+fi
+
+TOKEN="$1"
+AGENT_LABEL="$2"
+
+nohup java -jar /opt/swarm.jar \
+-disableSslVerification \
+-master http://0.0.0.0:8080 \
+-username jenkinz \
+-password $TOKEN \
+-name jenkinz-slave \
+-disableClientsUniqueId \
+-executors 1 \
+-labels \"$AGENT_LABEL\" \
+-fsroot jenkinz > /tmp/connect.log 2>/dev/null &

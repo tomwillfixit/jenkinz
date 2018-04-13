@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# sync source code from user specified repository into build agent workspace 
+
+if [ "$#" -ne 2 ]; then
+    echo "Wrong number of parameters"
+    exit 2
+fi
+
+src=$1
+dest=$2
+
+mkdir -p ${dest}/${src}
+chmod 777 ${dest}/${src}
+shopt -s dotglob;
+cp -r ${src}/* ${dest}/${src}/
+chmod -R 777 ${dest}/${src}
+chown -R ${USER}:${USER} ${dest}/${src}
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# This script is sourced from inside the dind container and these helper functions are used to :
+
+# Start the Jenkinz Master 
+
+jenkinz_image=$1
+
+docker rm -f jenkins &> /dev/null
+
+docker run -d --name jenkins -v /jenkinz/workspace:/jenkinz/workspace -p 8080:8080 -p 50000:50000 ${jenkinz_image} 

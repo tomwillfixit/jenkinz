@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Create a pipeline in Jenkins
+
+if [ "$#" -ne 2 ]; then
+    echo "Wrong number of parameters"
+    exit 2
+fi
+
+jenkins_master_container=$1
+repo=$2
+
+token=$(docker exec ${jenkins_master_container} /bin/bash -c "cat /var/jenkins_home/.auth_token" 2>/dev/null)
+
+sed -e "s|PROJECT_NAME|${repo}|g" /jenkinz/project/create_pipeline.groovy > /jenkinz/project/${repo}.groovy
+
+curl --data-urlencode "script=$(</jenkinz/project/${repo}.groovy)" --user jenkinz:${token} http://0.0.0.0:8080/scriptText
+
