@@ -44,3 +44,6 @@ clean:
 	docker rm -f memcached || true
 	docker rmi -f ${REPO}/${IMAGE_NAME}:${MEMCACHED_VERSION} ${MEMCACHED_IMAGE}
 
+quickcheck:
+	docker run --rm alpine:3.7 echo quickcheck
+

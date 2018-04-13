@@ -112,6 +112,7 @@ echo "[] Starting jenkinz v${version}"
     for ((build_num=1; build_num <= ${number_of_builds}; ++build_num));
     do
         ./sync_workspace ${repository} jenkinz-workspace
+        echo "Starting Build : ${repository} ${filename} ${build_num}"
         start-build ${repository} ${filename} ${build_num}
     done
 }
@@ -145,8 +146,8 @@ build_num=$3
 
 AGENT_LABEL=$(cat ${repository}/${filename} | grep label | awk -F"'" '{ print $2 }')
 TOKEN=$(docker exec -it jenkinz /bin/bash -c "cat .jenkins.auth_token")
-docker exec -d -e TOKEN=${TOKEN} -e AGENT_LABEL=${AGENT_LABEL} jenkinz /bin/bash -c "create_pipeline jenkins ${repository}"
-sleep 5
+docker exec -d -e TOKEN=${TOKEN} -e AGENT_LABEL=${AGENT_LABEL} jenkinz /bin/bash -c "create_pipeline jenkins ${repository} ${filename}"
+sleep 10
 docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 build "${repository}" -s -f -v'
 sleep 5
 docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}"' > build-logs/${repository}.${build_num}.build.log
@@ -163,12 +164,16 @@ kill -INT $$
 function clean()
 {
 docker-compose -f jenkinz.yml down
+echo "Cleaning out jenkinz-workspace"
+rm -rf jenkinz-workspace/*
 kill -INT $$
 }
 
 function total-clean()
 {
 docker-compose -f jenkinz.yml down -v
+echo "Cleaning out jenkinz-workspace"
+rm -rf jenkinz-workspace/*
 kill -INT $$
 }
 

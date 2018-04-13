@@ -71,6 +71,11 @@ jenkinz --repository demo -b 5
 
 ```
 
+Run a "quickcheck" build to ensure the master and agent start correctly and the pipeline project is created : 
+```
+jenkinz -r demo -f Jenkinsfile.quickcheck
+```
+
 ## Cleanup
 
 Stop jenkinz :

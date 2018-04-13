@@ -6,7 +6,7 @@ import org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition
 
 // Hardcoded in /tmp/jenkinsfile for convenience. This file is mounted into the jenkins container.
 
-def script = new File("/jenkinz/workspace/PROJECT_NAME/Jenkinsfile").text
+def script = new File("/jenkinz/workspace/PROJECT_NAME/JENKINSFILE").text
 WorkflowJob job = Jenkins.instance.createProject(WorkflowJob.class, "PROJECT_NAME")
 job.setDefinition(new CpsFlowDefinition(script, true))
 
