@@ -109,10 +109,10 @@ echo "[] Starting jenkinz v${version}"
     start-master
     start-slave ${repository} ${filename}
 
-    for ((i=1; i <= ${number_of_builds}; ++i));
+    for ((build_num=1; build_num <= ${number_of_builds}; ++build_num));
     do
         ./sync_workspace ${repository} jenkinz-workspace
-        start-build ${repository} ${filename}
+        start-build ${repository} ${filename} ${build_num}
     done
 }
 
@@ -141,11 +141,17 @@ function start-build()
 {
 repository=$1
 filename=$2
+build_num=$3
+
 AGENT_LABEL=$(cat ${repository}/${filename} | grep label | awk -F"'" '{ print $2 }')
 TOKEN=$(docker exec -it jenkinz /bin/bash -c "cat .jenkins.auth_token")
 docker exec -d -e TOKEN=${TOKEN} -e AGENT_LABEL=${AGENT_LABEL} jenkinz /bin/bash -c "create_pipeline jenkins ${repository}"
 sleep 5
 docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 build "${repository}" -s -f -v'
+sleep 5
+docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}"' > build-logs/${repository}.${build_num}.build.log
+
+echo "Log saved to : build-logs/${repository}.${build_num}.build.log"
 }
 
 function stop()
