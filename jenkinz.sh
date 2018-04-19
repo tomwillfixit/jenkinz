@@ -147,12 +147,78 @@ build_num=$3
 AGENT_LABEL=$(cat ${repository}/${filename} | grep label | awk -F"'" '{ print $2 }')
 TOKEN=$(docker exec -it jenkinz /bin/bash -c "cat .jenkins.auth_token")
 docker exec -d -e TOKEN=${TOKEN} -e AGENT_LABEL=${AGENT_LABEL} jenkinz /bin/bash -c "create_pipeline jenkins ${repository} ${filename}"
-sleep 10
+sleep 15
+start_stats ${repository} ${build_num}
 docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 build "${repository}" -s -f -v'
-sleep 5
+sleep 15
+stop_stats build-stats/${repository}.${build_num}.pid
 docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}"' > build-logs/${repository}.${build_num}.build.log
 
 echo "Log saved to : build-logs/${repository}.${build_num}.build.log"
+echo "Stats written to : build-stats/${repository}.${build_num}.stats"
+process_stats build-stats/${repository}.${build_num}.stats
+}
+
+start_stats()
+{
+repository=$1
+build_num=$2
+
+docker stats --format "table {{.CPUPerc}}\t{{.NetIO}}\t{{.MemUsage}}\t{{.BlockIO}}" jenkinz >> build-stats/${repository}.${build_num}.stats & echo $! > build-stats/${repository}.${build_num}.pid
+
+stats_pid=$(cat ./build-stats/${repository}.${build_num}.pid)
+echo "Stats PID : ${stats_pid}"
+}
+
+stop_stats()
+{
+pid_file=$1
+
+stats_pid=$(cat ${pid_file})
+echo "Stopping Stats PID : ${stats_pid}"
+kill ${stats_pid} &>/dev/null
+rm ${pid_file}
+
+}
+
+process_stats()
+{
+
+stats_file=$1
+
+peak_cpu_percentage=$(cat ${stats_file} |grep / |grep -v CPU |awk '{print $1}' | sort -nr | head -1)
+peak_network_input=$(cat ${stats_file} |grep / |grep -v CPU |awk '{print $2}' | sort -nr | head -1)
+peak_network_output=$(cat ${stats_file} |grep / |grep -v CPU |awk '{print $4}' | sort -nr | head -1)
+peak_memory_usage=$(cat ${stats_file} |grep / |grep -v CPU |awk '{print $5}' | sort -nr | head -1)
+peak_block_device_input=$(cat ${stats_file} |grep / |grep -v CPU |awk '{print $8}' | sort -nr | head -1)
+peak_block_device_output=$(cat ${stats_file} |grep / |grep -v CPU |awk '{print $10}' | sort -nr | head -1)
+
+rm ${stats_file}
+
+echo "=== Build Resource Usage ========================================"
+echo "The following stats are gathered using docker stats."
+echo "These are the peak values for each resource used by the pipeline." 
+echo "================================================================="
+echo "General Usage :"
+echo "--> CPU    : ${peak_cpu_percentage}"
+echo "--> Memory : ${peak_memory_usage}"
+echo "----------------------------"
+echo "Network Usage :"
+echo "--> Input  : ${peak_network_input}"
+echo "--> Output : ${peak_network_output}"
+echo "----------------------------"
+echo "Block Device Usage :"
+echo "--> Input  : ${peak_block_device_input}"
+echo "--> Output : ${peak_block_device_output}"
+echo "----------------------------"
+
+echo "CPU    : ${peak_cpu_percentage}" >> ${stats_file}
+echo "Memory : ${peak_memory_usage}" >> ${stats_file}
+echo "Network Input  : ${peak_network_input}" >> ${stats_file}
+echo "Network Output : ${peak_network_output}" >> ${stats_file}
+echo "Block Input  : ${peak_block_device_input}" >> ${stats_file}
+echo "Block Output : ${peak_block_device_output}" >> ${stats_file}
+
 }
 
 function stop()

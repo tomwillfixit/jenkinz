@@ -19,6 +19,9 @@ services:
         - type: bind
           source: ./jenkinz-workspace
           target: /jenkinz/workspace
+        - type: bind
+          source: ./build-stats
+          target: /jenkinz/stats
 
 volumes:
   jenkinz-data:
