@@ -32,6 +32,10 @@ COPY commands /usr/bin/
 # Install docker-compose
 #RUN pip install 'docker-compose==1.20.0'
 
+# Add config for squid http proxy. Disable for now.
+#RUN mkdir /root/.docker
+#ADD config.json /root/.docker/config.json
+
 # This script contains a simple dns entry which may be removable in future
 ADD jenkinz-entrypoint.sh /usr/local/bin/dockerd-entrypoint.sh
 RUN chmod +x /usr/local/bin/dockerd-entrypoint.sh 

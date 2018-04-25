@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.1"
+version="0.2"
 
 # This script should be sourced before running any "jenkinz (command)"
 
@@ -109,6 +109,10 @@ echo "[] Starting jenkinz v${version}"
     start-master
     start-slave ${repository} ${filename}
 
+    # Initially sync code into workspace allows the pipeline to be created
+    ./sync_workspace ${repository} jenkinz-workspace 
+    create-pipeline ${repository} ${filename} ${build_num}
+
     for ((build_num=1; build_num <= ${number_of_builds}; ++build_num));
     do
         ./sync_workspace ${repository} jenkinz-workspace
@@ -126,7 +130,6 @@ function start-master()
 {
 docker-compose -f jenkinz.yml up -d
 docker exec -it jenkinz /bin/bash -c "start_jenkins thshaw/jenkinz-master:2.107.1"
-docker exec -it jenkinz /bin/bash -c "get_token jenkins"
 }
 
 function start-slave()
@@ -138,20 +141,31 @@ AGENT_LABEL=$(cat ${repository}/${filename} | grep label | awk -F"'" '{ print $2
 docker exec -d -e TOKEN=${TOKEN} -e AGENT_LABEL=${AGENT_LABEL} jenkinz /bin/bash -c "connect ${TOKEN} ${AGENT_LABEL}"
 }
 
-function start-build()
+create-pipeline()
 {
+
 repository=$1
 filename=$2
 build_num=$3
 
 AGENT_LABEL=$(cat ${repository}/${filename} | grep label | awk -F"'" '{ print $2 }')
 TOKEN=$(docker exec -it jenkinz /bin/bash -c "cat .jenkins.auth_token")
-docker exec -d -e TOKEN=${TOKEN} -e AGENT_LABEL=${AGENT_LABEL} jenkinz /bin/bash -c "create_pipeline jenkins ${repository} ${filename}"
-sleep 15
+docker exec -it -e TOKEN=${TOKEN} -e AGENT_LABEL=${AGENT_LABEL} jenkinz /bin/bash -c "create_pipeline jenkins ${repository} ${filename}"
+
+}
+
+function start-build()
+{
+repository=$1
+filename=$2
+build_num=$3
+
 start_stats ${repository} ${build_num}
+
 docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 build "${repository}" -s -f -v'
-sleep 15
+
 stop_stats build-stats/${repository}.${build_num}.pid
+
 docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}"' > build-logs/${repository}.${build_num}.build.log
 
 echo "Log saved to : build-logs/${repository}.${build_num}.build.log"
@@ -170,13 +184,22 @@ stats_pid=$(cat ./build-stats/${repository}.${build_num}.pid)
 echo "Stats PID : ${stats_pid}"
 }
 
+function killsub() 
+{
+
+    kill -9 ${1} 2>/dev/null
+    wait ${1} 2>/dev/null
+
+}
+
 stop_stats()
 {
 pid_file=$1
 
 stats_pid=$(cat ${pid_file})
 echo "Stopping Stats PID : ${stats_pid}"
-kill ${stats_pid} &>/dev/null
+killsub ${stats_pid}
+#kill ${stats_pid} &>/dev/null
 rm ${pid_file}
 
 }
