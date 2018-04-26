@@ -162,15 +162,33 @@ build_num=$3
 
 start_stats ${repository} ${build_num}
 
+start=$SECONDS
+
 docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 build "${repository}" -s -f -v'
+
+end=$SECONDS
 
 stop_stats build-stats/${repository}.${build_num}.pid
 
 docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}"' > build-logs/${repository}.${build_num}.build.log
 
 echo "Log saved to : build-logs/${repository}.${build_num}.build.log"
+
+status=$(cat build-logs/${repository}.${build_num}.build.log |tail -1)
+
+if [[ ${status} = *"Finished"* ]]; then 
+    echo "Build Result : ${status}" 
+else 
+    echo "Unable to get "Finished" status from build log"
+    status="Unable to determine build outcome"
+fi
+
 echo "Stats written to : build-stats/${repository}.${build_num}.stats"
 process_stats build-stats/${repository}.${build_num}.stats
+
+duration=$(( end - start ))
+echo "Build #${build_num}  | ${repository} took ${duration} seconds. ${status}" |tee -a results.log
+
 }
 
 start_stats()
