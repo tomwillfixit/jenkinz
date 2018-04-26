@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.2"
+version="0.3"
 
 # This script should be sourced before running any "jenkinz (command)"
 
