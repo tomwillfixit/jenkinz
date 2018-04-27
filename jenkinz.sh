@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.3"
+version="0.4"
 
 # This script should be sourced before running any "jenkinz (command)"
 
@@ -164,7 +164,9 @@ start_stats ${repository} ${build_num}
 
 start=$SECONDS
 
-docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 build "${repository}" -s -f -v'
+docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 build "${repository}"'
+
+docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'watch-build "${repository}"'
 
 end=$SECONDS
 
