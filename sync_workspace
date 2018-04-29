@@ -10,10 +10,10 @@ fi
 src=$1
 dest=$2
 
-mkdir -p ${dest}/${src}
-chmod 777 ${dest}/${src}
+mkdir -p ${dest}
+chmod 777 ${dest}
 shopt -s dotglob;
-cp -r ${src}/* ${dest}/${src}/
-chmod -R 777 ${dest}/${src}
-chown -R ${USER}:${USER} ${dest}/${src}
+cp -r ${src}/* ${dest}
+chmod -R 777 ${dest}
+chown -R ${USER}:${USER} ${dest}
 

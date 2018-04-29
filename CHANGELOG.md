@@ -1,4 +1,10 @@
-v0.4 :
+## v0.5
+
+Support for parallel stages. For each agent label found in the Jenkinsfile provided a agent is started. This will allow stages to run in parallel.  An example can be found here : demo/Jenkinsfile.parallel.tests.
+
+Usage : jenkinz -r demo -f Jenkinsfile.parallel.tests
+
+## v0.4
 
 Support for Jenkins Master restart during build added. The Master can be restarted multiple times during a build and the build should still complete successfully. This is part of the upcoming ChaosButler function which will also simulate network flaps during a build.
 

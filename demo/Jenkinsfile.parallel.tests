@@ -1,0 +1,35 @@
+// CI Pipeline for Memcached Container Image
+
+pipeline {
+    agent none
+    stages {
+        stage('Build Memcached Container Image') {
+                    agent {
+                        label 'centos'
+                    }
+                    steps {
+                        sh 'make build'
+                    }
+                }
+        stage('Run Tests') {
+            parallel {
+                stage('Run tests on Centos') {
+                    agent {
+                        label 'centos'
+                    }
+                    steps {
+                        sh 'make test' 
+                    }
+                }
+                stage('Run tests on Windows') {
+                    agent {
+                        label 'windows'
+                    }
+                    steps {
+                        sh 'make test'            
+                    }
+                }
+            }
+        }
+    }
+}

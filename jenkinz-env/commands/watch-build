@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Added support for Jenkins master restarts
+
+repository=$1
+
+function wait_for_restart()                                                                
+{                                                                                          
+                           
+    echo "Waiting for Jenkins to start before re-joining the build console output"
+    end=$((SECONDS+120))                                                          
+                                                                                  
+    while [ $SECONDS -lt ${end} ]; do                                             
+                                                                                  
+    curl -s http://0.0.0.0:8080/metrics/currentUser/healthcheck |grep "healthy" &>/dev/null
+                                                                                           
+    if [ $? -eq 0 ];then                                                                   
+        echo "Health Check Passed. Jenkins is ready."                                      
+        return 0                                                                           
+    else                                                                                   
+        echo "Please wait while Jenkins is starting ..."                                   
+    fi                                                                                     
+    sleep 5                                                                                
+    done                                                
+    echo "Timed Out waiting for Jenkins to restart. Exiting"
+    exit 2                                                  
+}          
+
+while(true)
+do
+java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}" -f
+ec=$?
+
+if [ ${ec} -eq 255 ];then
+    wait_for_restart
+else
+    exit ${ec}
+fi
+done
+

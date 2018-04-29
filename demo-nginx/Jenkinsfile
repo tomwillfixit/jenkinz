@@ -1,0 +1,32 @@
+// Build Pipeline for nginx 
+
+pipeline {
+    agent { label 'centos' }
+    environment {
+        MAIL_TO = 'test@changeme.com'
+    }
+    stages {
+        stage('Build nginx') {
+            steps {
+		retry(3) {
+                script {
+                        sh 'make build'
+                    }
+		}
+            }
+        }
+    }
+    post {
+        always {
+            sh 'make clean'
+            deleteDir() /* clean up our workspace */
+        }
+        failure {
+            mail (to: "${MAIL_TO}",
+            subject: "WARNING : Build failed",
+            body: "Details at : ${env.BUILD_URL}.")
+        } 
+    }
+}
+
+

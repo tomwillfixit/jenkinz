@@ -17,7 +17,7 @@ EXPOSED_PORT := 11211
 build:
 	export SHA=$(shell git log -1 --pretty=format:%h) ; \
 	export BRANCH=$(shell git symbolic-ref --short HEAD) ; \
-	docker build \
+	docker build --no-cache\
 		-t ${REPO}/${IMAGE_NAME}:${MEMCACHED_VERSION} \
 		--build-arg AUTHOR=${AUTHOR} \
 		--build-arg MEMCACHED_VERSION=${MEMCACHED_VERSION} \
@@ -36,7 +36,7 @@ start:
 logs:
 	docker logs -f memcached 
 
-test: build
+test:
 	echo "Starting Test : connectivity_check.sh"
 	./connectivity_check.sh ${REPO}/${IMAGE_NAME}:${MEMCACHED_VERSION} ${MEMCACHED_IMAGE}
 

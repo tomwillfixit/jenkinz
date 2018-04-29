@@ -12,8 +12,7 @@ memcached_image=$1
 memcached_default_port=11211
 
 echo "Starting Memcached"
-docker rm -f memcached 2>/dev/null
-docker run -d --name memcached -p ${memcached_default_port}:${memcached_default_port} ${memcached_image}
+docker run -d -p ${memcached_default_port}:${memcached_default_port} ${memcached_image}
 
 echo "Verify connection to Memcached"
 echo "This will timeout after 2 minutes and the test will fail"
@@ -24,7 +23,6 @@ while [ $SECONDS -lt $end ]; do
     echo "stats" | nc 0.0.0.0 ${memcached_default_port} |grep uptime
     if [ $? -eq 0 ];then
         echo "Connection to Memcached succeeded"
-        docker rm -f memcached
 	exit 0
     else
 	echo "Waiting for connection to take place ..."
@@ -32,6 +30,5 @@ while [ $SECONDS -lt $end ]; do
     sleep 5
 done
 
-docker rm -f memcached
 exit 1
 

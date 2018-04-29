@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.4"
+version="0.5"
 
 # This script should be sourced before running any "jenkinz (command)"
 
@@ -73,6 +73,7 @@ number_of_builds=1
           stop )              local stop="true";      shift;;
           clean )             local clean="true";      shift;;
           total-clean )       local totalclean="true";      shift;;
+          shell )             local shell="true";      shift;;
       esac
       shift # move to next kv pair
   done
@@ -91,6 +92,11 @@ if [[ "${totalclean}" == "true" ]];then
   total-clean
 fi
 
+if [[ "${shell}" == "true" ]];then
+  shell 
+fi
+
+
 if [[ -z "${repository}" ]]; then
     echo "A valid repository must be provided"
     usage
@@ -107,15 +113,28 @@ echo "[] Starting jenkinz v${version}"
     sanity_check
     build-environment
     start-master
-    start-slave ${repository} ${filename}
+    start-agent ${repository} ${filename}
 
     # Initially sync code into workspace allows the pipeline to be created
-    ./sync_workspace ${repository} jenkinz-workspace 
+    #for LABEL in "${AGENT_LABELS[@]}";
+    #do
+    #    echo "Copy contents of ${repository} to jenkinz-workspace/${repository}/${LABEL}"
+    #    ./sync_workspace ${repository} jenkinz-workspace/${repository}/${LABEL}
+    #done
+
+    # This only needs to be created once regardless of the number of agents and
+    # uses a copy of the respository code copied to jenkinz-workspace/${repository}
+    ./sync_workspace ${repository} jenkinz-workspace/${repository} 
     create-pipeline ${repository} ${filename} ${build_num}
 
     for ((build_num=1; build_num <= ${number_of_builds}; ++build_num));
     do
-        ./sync_workspace ${repository} jenkinz-workspace
+        #for LABEL in "${AGENT_LABELS[@]}";
+        #do
+        #    echo "Copy contents of ${repository} to jenkinz-workspace/${repository}/${LABEL}"
+        #    ./sync_workspace ${repository} jenkinz-workspace/${repository}/${LABEL}
+        #done
+        ./sync_workspace ${repository} jenkinz-workspace/${repository}
         echo "Starting Build : ${repository} ${filename} ${build_num}"
         start-build ${repository} ${filename} ${build_num}
     done
@@ -132,13 +151,22 @@ docker-compose -f jenkinz.yml up -d
 docker exec -it jenkinz /bin/bash -c "start_jenkins thshaw/jenkinz-master:2.107.1"
 }
 
-function start-slave()
+function start-agent()
 {
 repository=$1
 filename=$2
+
 TOKEN=$(docker exec -it jenkinz /bin/bash -c "cat .jenkins.auth_token")
-AGENT_LABEL=$(cat ${repository}/${filename} | grep label | awk -F"'" '{ print $2 }')
-docker exec -d -e TOKEN=${TOKEN} -e AGENT_LABEL=${AGENT_LABEL} jenkinz /bin/bash -c "connect ${TOKEN} ${AGENT_LABEL}"
+# Remove carriage return from TOKEN variable
+TOKEN_STRIP=$(echo ${TOKEN} |sed 's/\r//g')
+
+AGENT_LABELS=($(cat ${repository}/${filename} | grep label | awk -F"'" '{ print $2 }'))
+
+for LABEL in "${AGENT_LABELS[@]}"
+do
+echo "Starting Build Agent with label : ${LABEL}"
+docker exec -d jenkinz /bin/bash -c "connect ${TOKEN_STRIP} ${LABEL} ${repository}"
+done
 }
 
 create-pipeline()
@@ -148,9 +176,7 @@ repository=$1
 filename=$2
 build_num=$3
 
-AGENT_LABEL=$(cat ${repository}/${filename} | grep label | awk -F"'" '{ print $2 }')
-TOKEN=$(docker exec -it jenkinz /bin/bash -c "cat .jenkins.auth_token")
-docker exec -it -e TOKEN=${TOKEN} -e AGENT_LABEL=${AGENT_LABEL} jenkinz /bin/bash -c "create_pipeline jenkins ${repository} ${filename}"
+docker exec -it jenkinz /bin/bash -c "create_pipeline jenkins ${repository} ${filename}"
 
 }
 
@@ -286,3 +312,9 @@ rm -rf jenkinz-workspace/*
 kill -INT $$
 }
 
+function shell()
+{
+
+docker exec -it jenkinz /bin/bash
+
+}
