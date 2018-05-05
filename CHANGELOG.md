@@ -1,3 +1,20 @@
+## v0.6
+
+Experimental "Chaos" support.  Default chaos.cb config in the top level looks like : 
+```
+master_restart:?
+network_flap:?:10
+```
+
+This can be enabled by passing in the --chaos argument. 
+
+For Example :
+```
+jenkinz -r demo-nginx -b 5 --chaos
+```
+
+This default chaos.cb file will cause the jenkins master to restart at some point during the build. There will also be a 10 second network flap at some point during the build. This is a rough POC.
+
 ## v0.5
 
 Support for parallel stages. For each agent label found in the Jenkinsfile provided a agent is started. This will allow stages to run in parallel.  An example can be found here : demo/Jenkinsfile.parallel.tests.

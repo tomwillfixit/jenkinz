@@ -1,0 +1,91 @@
+#!/bin/bash
+
+# Not related to a Jenkins Plugin called Chaos Butler
+
+# Script to cause Chaos during a CI Build
+
+# Simulates Jenkins Master restart/downtime
+# Simulates network outage by disconnecting the build agent container from the network, waiting for a defined period and reconnecting
+
+# One input : A chaosbutler .cb file with a list of actions to take during a build.
+
+# Example :
+
+# master_restart:60
+
+# Restarts Master 1 minute into the build, runs once during the build
+
+# master_restart:?
+
+# Restarts Master at a random point during the build, runs once during the build
+
+# network_flap:?:30
+
+# Remove the build agent container from the network at a random point, wait for 30 seconds and reconnect.
+
+cbfile=$1
+
+if [ ! -f ${cbfile} ];then
+    echo "Chaos Butler file not found"
+    exit 2
+else
+    echo "Using Chaos Butler file : ${cbfile}"
+fi
+
+function network_flap()
+{
+
+nf_start_time=$1
+nf_duration=$2
+
+echo "Simulating : ${action} will run ${nf_start_time} seconds after the build starts. Waiting ${nf_duration} seconds inbetween flaps." |tee -a /tmp/chaosbutler.log
+nohup bash -c "sleep ${nf_start_time} ; simulate_network_flap ${nf_duration}" &
+}
+
+function master_restart()
+{
+
+mr_start_time=$1
+echo "Scheduling : master_restart will run ${mr_start_time} seconds after the build starts." |tee -a /tmp/chaosbutler.log
+nohup bash -c "sleep ${mr_start_time} ; java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 restart >/dev/null 2>&1 " &
+
+}
+
+echo "Parsing ChaosButler file"
+
+for line in $(cat ${cbfile}|grep -v "#");
+do
+
+action=$(echo ${line} |cut -d":" -f1)
+
+if [ ${action} == "master_restart" ];then
+    start_time=$(echo ${line} |cut -d":" -f2)
+    repeat=$(echo ${line} |cut -d":" -f3)
+else
+    start_time=$(echo ${line} |cut -d":" -f2)
+    duration=$(echo ${line} |cut -d":" -f3)
+    repeat=$(echo ${line} |cut -d":" -f4)
+fi
+
+if [ "${start_time}" == "?" ];then
+
+    # Another hardcoded value. Maximum random duration set to 2 minutes
+    start_time=$(( ( RANDOM % 120 )  + 1 ))
+
+fi
+
+if [ "${duration}" == "?" ];then
+
+    # Another hardcoded value. Maximum random duration set to 2 minutes
+    duration=$(( ( RANDOM % 120 )  + 1 ))
+
+fi
+
+if [ ${action} == "master_restart" ];then
+    master_restart ${start_time}
+else
+    network_flap ${start_time} ${duration}
+fi
+
+done
+

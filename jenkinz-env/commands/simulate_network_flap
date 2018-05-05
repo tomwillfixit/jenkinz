@@ -1,0 +1,25 @@
+#!/bin/bash
+
+nf_duration=$1
+
+echo "Find running container"
+running=$(docker ps |grep -v jenkins |grep -v CONTAINER |awk '{print $1}')
+
+if [ -z "${running}" ];then
+    echo "No Containers running"
+else
+    echo "Disconnecting container (${running}) from bridge network for ${nf_duration} seconds" |tee -a /tmp/chaosbutler.log
+    for container in `echo ${running}`
+    do
+        docker network disconnect bridge ${container}
+        sleep ${nf_duration}
+        docker ps |grep ${container}
+        if [ $? -eq 0 ];then
+            echo "Container is still running. Reconnecting : ${container} to bridge network" |tee -a /tmp/chaosbutler.log
+            docker network connect bridge ${container}
+        else
+            echo "Container is no longer running : ${container}" |tee -a /tmp/chaosbutler.log
+        fi
+    done
+fi
+

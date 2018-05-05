@@ -76,6 +76,14 @@ Run a "quickcheck" build to ensure the master and agent start correctly and the 
 jenkinz -r demo -f Jenkinsfile.quickcheck
 ```
 
+Chaos (Experimental) :
+
+The following command will use the default chaos.cb file to simulate a Jenkins Master restart and a network flap.
+```
+jenkinz -r demo -b 5 --chaos
+
+```
+
 ## Cleanup
 
 Stop jenkinz :

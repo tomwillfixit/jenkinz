@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.5"
+version="0.6"
 
 # This script should be sourced before running any "jenkinz (command)"
 
@@ -16,6 +16,7 @@ function usage
     echo "  -r | --repository      : Name of the repository containing the Jenkinsfile";
     echo "  -f | --filename    	 : Defaults to Jenkinsfile";
     echo "  -b | --builds     	 : Number of Builds";
+    echo "  -c | --chaos         : Defaults to the chaos.cb file in jenkinz repository";
     echo "  -u | --usage     	 : Usage";
     echo ""
     echo "Housekeeping: "
@@ -52,6 +53,7 @@ stop="false"
 clean="false"
 totalclean="false"
 usage="false"
+chaos="false"
 repository=""
 filename=""
 number_of_builds=1
@@ -69,6 +71,7 @@ number_of_builds=1
           -r | --repository ) local repository="$2";             shift;;
           -f | --filename )   local filename="$2";     shift;;
           -b | --builds )     local number_of_builds="$2";      shift;;
+          -c | --chaos )      local chaos="true";      shift;;
           -u | --usage )      local usage="true";      shift;;
           stop )              local stop="true";      shift;;
           clean )             local clean="true";      shift;;
@@ -96,6 +99,14 @@ if [[ "${shell}" == "true" ]];then
   shell 
 fi
 
+if [[ "${chaos}" == "true" ]];then
+  if [[ ! -f "./chaos.cb" ]]; then
+    echo "Unable to find default chaos.cb file. Skipping"
+    chaos="false"
+  else
+    echo "Using chaos.cb file : ./chaos.cb"
+  fi 
+fi
 
 if [[ -z "${repository}" ]]; then
     echo "A valid repository must be provided"
@@ -115,25 +126,21 @@ echo "[] Starting jenkinz v${version}"
     start-master
     start-agent ${repository} ${filename}
 
-    # Initially sync code into workspace allows the pipeline to be created
-    #for LABEL in "${AGENT_LABELS[@]}";
-    #do
-    #    echo "Copy contents of ${repository} to jenkinz-workspace/${repository}/${LABEL}"
-    #    ./sync_workspace ${repository} jenkinz-workspace/${repository}/${LABEL}
-    #done
-
     # This only needs to be created once regardless of the number of agents and
     # uses a copy of the respository code copied to jenkinz-workspace/${repository}
     ./sync_workspace ${repository} jenkinz-workspace/${repository} 
     create-pipeline ${repository} ${filename} ${build_num}
 
+    # Start ChaosButler here to ensure it is run just once
+    if [ ${chaos} == "true" ];then
+        echo "Starting ChaosButler using profile :"
+        docker cp ./chaos.cb jenkinz:/tmp/chaos.cb
+        docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'cat /tmp/chaos.cb'
+        docker exec -d -e repository=${repository} jenkinz /bin/bash -c 'chaosbutler /tmp/chaos.cb'
+    fi
+
     for ((build_num=1; build_num <= ${number_of_builds}; ++build_num));
     do
-        #for LABEL in "${AGENT_LABELS[@]}";
-        #do
-        #    echo "Copy contents of ${repository} to jenkinz-workspace/${repository}/${LABEL}"
-        #    ./sync_workspace ${repository} jenkinz-workspace/${repository}/${LABEL}
-        #done
         ./sync_workspace ${repository} jenkinz-workspace/${repository}
         echo "Starting Build : ${repository} ${filename} ${build_num}"
         start-build ${repository} ${filename} ${build_num}
