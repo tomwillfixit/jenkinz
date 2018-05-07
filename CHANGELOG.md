@@ -1,3 +1,12 @@
+## v0.7
+
+Jenkinz defaults to using a Jenkins Master based on 2.107.2. To use the previous version 2.107.1 just specify the -v option.
+
+For Example :
+```
+jenkinz -v 2.107.1 -r demo 
+```
+
 ## v0.6
 
 Experimental "Chaos" support.  Default chaos.cb config in the top level looks like : 

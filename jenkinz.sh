@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.6"
+version="0.7"
 
 # This script should be sourced before running any "jenkinz (command)"
 
@@ -16,6 +16,7 @@ function usage
     echo "  -r | --repository      : Name of the repository containing the Jenkinsfile";
     echo "  -f | --filename    	 : Defaults to Jenkinsfile";
     echo "  -b | --builds     	 : Number of Builds";
+    echo "  -v | --version     	 : Jenkins Master Version (Default : 2.107.2)";
     echo "  -c | --chaos         : Defaults to the chaos.cb file in jenkinz repository";
     echo "  -u | --usage     	 : Usage";
     echo ""
@@ -57,6 +58,7 @@ chaos="false"
 repository=""
 filename=""
 number_of_builds=1
+jenkins_version="2.107.2"
 
   # positional args
   args=()
@@ -71,6 +73,7 @@ number_of_builds=1
           -r | --repository ) local repository="$2";             shift;;
           -f | --filename )   local filename="$2";     shift;;
           -b | --builds )     local number_of_builds="$2";      shift;;
+          -v | --version )    local jenkins_version="$2";      shift;;
           -c | --chaos )      local chaos="true";      shift;;
           -u | --usage )      local usage="true";      shift;;
           stop )              local stop="true";      shift;;
@@ -155,7 +158,7 @@ docker-compose -f jenkinz.yml build
 function start-master()
 {
 docker-compose -f jenkinz.yml up -d
-docker exec -it jenkinz /bin/bash -c "start_jenkins thshaw/jenkinz-master:2.107.1"
+docker exec -it jenkinz /bin/bash -c "start_jenkins thshaw/jenkins-master:${jenkins_version}"
 }
 
 function start-agent()
