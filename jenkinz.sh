@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.7"
+version="0.8"
 
 # This script should be sourced before running any "jenkinz (command)"
 
@@ -16,12 +16,13 @@ function usage
     echo "  -r | --repository      : Name of the repository containing the Jenkinsfile";
     echo "  -f | --filename    	 : Defaults to Jenkinsfile";
     echo "  -b | --builds     	 : Number of Builds";
-    echo "  -v | --version     	 : Jenkins Master Version (Default : 2.107.2)";
+    echo "  -i | --image     	 : Official Jenkins Master Image (Default : jenkins/jenkins:2.107.2)";
     echo "  -c | --chaos         : Defaults to the chaos.cb file in jenkinz repository";
     echo "  -u | --usage     	 : Usage";
     echo ""
-    echo "Housekeeping: "
+    echo "Helper functions: "
     echo "    "
+    echo "jenkinz list-tags : Displays list of Image tags from the official Jenkins repository"
     echo "jenkinz stop  : Stops the jenkinz environment"
     echo "jenkinz clean : Removes jenkinz environment"
     echo "jenkinz total-clean : Removes jenkinz environment and data volumes used by jenkinz"
@@ -45,7 +46,7 @@ if [ ! -f ${repository}/${filename} ];then
 fi
 
 }
- 
+
 function jenkinz 
 {
 
@@ -58,7 +59,8 @@ chaos="false"
 repository=""
 filename=""
 number_of_builds=1
-jenkins_version="2.107.2"
+official_jenkins_image="jenkins/jenkins:2.107.2"
+tags="false"
 
   # positional args
   args=()
@@ -73,9 +75,10 @@ jenkins_version="2.107.2"
           -r | --repository ) local repository="$2";             shift;;
           -f | --filename )   local filename="$2";     shift;;
           -b | --builds )     local number_of_builds="$2";      shift;;
-          -v | --version )    local jenkins_version="$2";      shift;;
+          -i | --image )    local official_jenkins_image="$2";      shift;;
           -c | --chaos )      local chaos="true";      shift;;
           -u | --usage )      local usage="true";      shift;;
+          list-tags )         local tags="true";      shift;;
           stop )              local stop="true";      shift;;
           clean )             local clean="true";      shift;;
           total-clean )       local totalclean="true";      shift;;
@@ -101,6 +104,11 @@ fi
 if [[ "${shell}" == "true" ]];then
   shell 
 fi
+
+if [[ "${tags}" == "true" ]];then
+  list-tags 
+fi
+
 
 if [[ "${chaos}" == "true" ]];then
   if [[ ! -f "./chaos.cb" ]]; then
@@ -158,7 +166,12 @@ docker-compose -f jenkinz.yml build
 function start-master()
 {
 docker-compose -f jenkinz.yml up -d
-docker exec -it jenkinz /bin/bash -c "start_jenkins thshaw/jenkins-master:${jenkins_version}"
+
+# Pull the official image, install some plugins
+docker exec -it jenkinz /bin/bash -c "build_jenkins ${official_jenkins_image}"
+
+# Start container based on official image + plugins 
+docker exec -it jenkinz /bin/bash -c "start_jenkins ${official_jenkins_image}"
 }
 
 function start-agent()
@@ -328,3 +341,22 @@ function shell()
 docker exec -it jenkinz /bin/bash
 
 }
+
+function list-tags
+{
+
+url="https://registry.hub.docker.com/v2/repositories/library/jenkins/tags?page_size=1024"
+
+IFS=$'\n' read -r -d '' -a tag_array \
+  < <(set -o pipefail; curl -L -s --fail -k "$url" | jq -r '."results"[]["name"]' |grep alpine && printf '\0')
+
+if [ -n "${tag_array}" ]; then
+    printf 'jenkins/jenkins:%s\n' "${tag_array[@]}"
+else
+    echo "Unable to get a list of tags. This may be due to curl failing or failure to extract the tags from the Dockerfile."
+    exit 3
+fi
+
+kill -INT $$
+}
+

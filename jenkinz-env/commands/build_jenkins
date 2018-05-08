@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# This script can take an official jenkins image from docker hub and prepare it for jenkinz
+
+# Example : jenkins/jenkins:2.117-alpine
+
+official_image=$1
+
+echo "Change directory to build image : ${official_image}"
+cd /jenkinz/config
+
+tag=$(echo ${official_image} |cut -d":" -f2)
+echo "Creating Dockerfile named : Dockerfile.${tag}"
+
+cp Dockerfile Dockerfile.${tag}
+sed -i "s|OFFICIAL_IMAGE_TOKEN|$official_image|g" Dockerfile.${tag}
+
+docker build -t ${official_image} -f Dockerfile.${tag} .
+
+if [ $? -eq 0 ];then
+    echo "Build Successful : ${official_image}"
+else
+    echo "Build Failed. Please investigate"
+    exit 2
+fi 

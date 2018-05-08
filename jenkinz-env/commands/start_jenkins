@@ -8,7 +8,7 @@ jenkinz_image=$1
 
 docker rm -f jenkins &> /dev/null
 
-docker run -d --name jenkins -v /jenkinz/workspace:/jenkinz/workspace -p 8080:8080 -p 50000:50000 ${jenkinz_image} 
+docker run -d --name jenkins --env JAVA_OPTS=-Djenkins.install.runSetupWizard=false -v /jenkinz/workspace:/jenkinz/workspace -p 8080:8080 -p 50000:50000 ${jenkinz_image} 
 
 # There are 2 parts to this; wait for token to be created and wait for healthcheck to pass
 

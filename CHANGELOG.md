@@ -1,5 +1,30 @@
+## v0.8
+
+Run your builds against a specific version of the official Jenkins on Docker Hub (Only supports Alpine based images)
+
+Get a list of available Alpine based images in Docker Hub :
+
+```
+jenkinz list-tags
+
+Example Output : 
+
+jenkins/jenkins:2.60.3-alpine
+jenkins/jenkins:alpine
+jenkins/jenkins:2.60.2-alpine
+jenkins/jenkins:2.60.1-alpine
+jenkins/jenkins:2.46.3-alpine
+
+
+Run a build against a specific version :
+
+jenkinz --image jenkins/jenkins:2.60.3-alpine --repository demo
+```
+
+
 ## v0.7
 
+(This was just plain old shoddy. Skip v0.7 and goto v0.8)
 Jenkinz defaults to using a Jenkins Master based on 2.107.2. To use the previous version 2.107.1 just specify the -v option.
 
 For Example :

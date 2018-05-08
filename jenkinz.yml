@@ -20,6 +20,9 @@ services:
           source: ./jenkinz-workspace
           target: /jenkinz/workspace
         - type: bind
+          source: ./config
+          target: /jenkinz/config
+        - type: bind
           source: ./build-stats
           target: /jenkinz/stats
 

@@ -84,6 +84,27 @@ jenkinz -r demo -b 5 --chaos
 
 ```
 
+Run builds against a specific version of Jenkins (Only supports Alpine based images)
+
+Get a list of available Alpine based images in Docker Hub :
+```
+jenkinz list-tags
+
+Example Output : 
+
+jenkins/jenkins:2.60.3-alpine
+jenkins/jenkins:alpine
+jenkins/jenkins:2.60.2-alpine
+jenkins/jenkins:2.60.1-alpine
+jenkins/jenkins:2.46.3-alpine
+
+
+Run a build against a specific version :
+
+jenkinz --image jenkins/jenkins:2.60.3-alpine --repository demo
+
+```
+
 ## Cleanup
 
 Stop jenkinz :
