@@ -10,14 +10,16 @@ fi
 jenkins_master_container=$1
 repo=$2
 jenkinsfile=$3
+script_name=${0##*/}
 
 token=$(docker exec ${jenkins_master_container} /bin/bash -c "cat /var/jenkins_home/.auth_token" 2>/dev/null)
 
+echo "[${script_name}] ... Replace PROJECT_NAME and JENKINSFILE tokens in /jenkinz/project/create_pipeline.groovy"
 sed -e "s|PROJECT_NAME|${repo}|g" /jenkinz/project/create_pipeline.groovy > /jenkinz/project/${repo}.groovy.tmp
-
 sed -e "s|JENKINSFILE|${jenkinsfile}|g" /jenkinz/project/${repo}.groovy.tmp > /jenkinz/project/${repo}.groovy
 
 rm /jenkinz/project/${repo}.groovy.tmp
 
+echo "[${script_name}] ... Creating Pipeline for ${repo}"
 curl --data-urlencode "script=$(</jenkinz/project/${repo}.groovy)" --user jenkinz:${token} http://0.0.0.0:8080/scriptText
 

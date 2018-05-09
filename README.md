@@ -101,7 +101,7 @@ jenkins/jenkins:2.46.3-alpine
 
 Run a build against a specific version :
 
-jenkinz --image jenkins/jenkins:2.60.3-alpine --repository demo
+jenkinz --image jenkinsci/jenkins:2.107.2-alpine --repository demo
 
 ```
 

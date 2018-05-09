@@ -5,14 +5,19 @@
 # Start the Jenkinz Master 
 
 jenkinz_image=$1
+script_name=${0##*/}
+
+echo "[${script_name}] ... Removing jenkins container if running."
 
 docker rm -f jenkins &> /dev/null
+
+echo "[${script_name}] ... docker run -d --name jenkins --env JAVA_OPTS=-Djenkins.install.runSetupWizard=false -v /jenkinz/workspace:/jenkinz/workspace -p 8080:8080 -p 50000:50000 ${jenkinz_image}"
 
 docker run -d --name jenkins --env JAVA_OPTS=-Djenkins.install.runSetupWizard=false -v /jenkinz/workspace:/jenkinz/workspace -p 8080:8080 -p 50000:50000 ${jenkinz_image} 
 
 # There are 2 parts to this; wait for token to be created and wait for healthcheck to pass
 
-echo "Waiting for auth token to be created"
+echo "[${script_name}] ... Waiting for auth token to be created"
 
 token_end=$((SECONDS+120))
 
@@ -20,17 +25,17 @@ while [ $SECONDS -lt ${token_end} ]; do
     TOKEN=$(docker exec jenkins /bin/bash -c "cat /var/jenkins_home/.auth_token" 2>/dev/null)
 
     if [ -z ${TOKEN} ];then
-        echo "---> Jenkins starting ..."
+        echo "[${script_name}] ... Jenkins starting ..."
     else
-        echo -e "\nAuth token created successfully : ${TOKEN}"
-        echo -e "\nWritten to : .jenkins.auth_token"
+        echo -e "\n[${script_name}] ... Auth token created successfully : ${TOKEN}"
+        echo -e "\n[${script_name}] ... Written to : .jenkins.auth_token"
         echo "${TOKEN}" > .jenkins.auth_token
         break 
     fi
     sleep 5
 done
 
-echo "Waiting for Jenkins Health Check to pass"
+echo "[${script_name}] ... Waiting for Jenkins Health Check to pass"
 health_check_end=$((SECONDS+120))
 
 while [ $SECONDS -lt ${health_check_end} ]; do
@@ -38,10 +43,10 @@ while [ $SECONDS -lt ${health_check_end} ]; do
    curl -s http://0.0.0.0:8080/metrics/currentUser/healthcheck |grep "healthy" &>/dev/null
 
    if [ $? -eq 0 ];then
-       echo "Health Check Passed. Jenkins is ready."
+       echo "[${script_name}] ... Health Check Passed. Jenkins is ready."
        exit 0
    else
-       echo "Please wait while Jenkins is starting ..."
+       echo "[${script_name}] ... Please wait while Jenkins is starting ..."
    fi
    sleep 5
 done

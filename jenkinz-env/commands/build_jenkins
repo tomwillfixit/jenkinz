@@ -5,21 +5,31 @@
 # Example : jenkins/jenkins:2.117-alpine
 
 official_image=$1
-
-echo "Change directory to build image : ${official_image}"
-cd /jenkinz/config
+script_name=${0##*/}
 
 tag=$(echo ${official_image} |cut -d":" -f2)
-echo "Creating Dockerfile named : Dockerfile.${tag}"
 
+echo "[${script_name}] ... This script will pull the image : ${official_image}, add the relevant plugins and tag as : jenkins:${tag}"
+echo "[${script_name}] ... Switching to directory /jenkinz/config to build image"
+ 
+cd /jenkinz/config
+
+if [ -f Dockerfile.${tag} ];then
+    echo "[${script_name}] ... Dockerfile already exists. Removing."
+    rm -f Dockerfile.${tag} &>/dev/null ||true
+fi
+
+echo "[${script_name}] ... Copying Dockerfile to Dockerfile.${tag}" 
 cp Dockerfile Dockerfile.${tag}
+echo "[${script_name}] ... Replacing OFFICIAL_IMAGE_TOKEN with $official_image"
 sed -i "s|OFFICIAL_IMAGE_TOKEN|$official_image|g" Dockerfile.${tag}
 
-docker build -t ${official_image} -f Dockerfile.${tag} .
+echo "[${script_name}] ... docker build -t ${official_image} -f Dockerfile.${tag} ."
+docker build -t jenkins:${tag} -f Dockerfile.${tag} .
 
 if [ $? -eq 0 ];then
-    echo "Build Successful : ${official_image}"
+    echo "[${script_name}] ... Build Successful : jenkins:${tag}"
 else
-    echo "Build Failed. Please investigate"
+    echo "[${script_name}] ... Build Failed. Please investigate"
     exit 2
 fi 

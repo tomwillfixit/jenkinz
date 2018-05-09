@@ -11,11 +11,24 @@ fi
 TOKEN="$1"
 LABEL="$2"
 REPOSITORY="$3"
+script_name=${0##*/}
 
 # We append on a random number to the agent name to support identical labels
 
 RAND_NUM=$(( ( RANDOM % 1000 )  + 1 ))
 
+echo "[${script_name}] ... nohup java -jar /opt/swarm.jar \
+-disableSslVerification \
+-master http://0.0.0.0:8080 \
+-username jenkinz \
+-password $TOKEN \
+-name jenkinz-agent-$LABEL-$RAND_NUM \
+-disableClientsUniqueId \
+-executors 1 \
+-labels \"$LABEL\" \
+-fsroot jenkinz >> /tmp/connect.log 2>/dev/null &
+"
+ 
 nohup java -jar /opt/swarm.jar \
 -disableSslVerification \
 -master http://0.0.0.0:8080 \

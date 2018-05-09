@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.8"
+version="0.8.1"
 
 # This script should be sourced before running any "jenkinz (command)"
 
@@ -167,11 +167,17 @@ function start-master()
 {
 docker-compose -f jenkinz.yml up -d
 
+image_tag=$(echo ${official_jenkins_image} |cut -d":" -f2)
+
 # Pull the official image, install some plugins
 docker exec -it jenkinz /bin/bash -c "build_jenkins ${official_jenkins_image}"
+if [ $? -ne 0 ];then
+    echo "Building Image jenkins:${image_tag} FROM ${official_jenkins_image} failed."
+    kill -INT $$ 
+fi
 
 # Start container based on official image + plugins 
-docker exec -it jenkinz /bin/bash -c "start_jenkins ${official_jenkins_image}"
+docker exec -it jenkinz /bin/bash -c "start_jenkins jenkins:${image_tag}"
 }
 
 function start-agent()
@@ -221,7 +227,13 @@ end=$SECONDS
 
 stop_stats build-stats/${repository}.${build_num}.pid
 
-docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}"' > build-logs/${repository}.${build_num}.build.log
+echo "Generate Post Build Report"
+echo -e "\nJenkins Version :\n" > build-logs/${repository}.${build_num}.build.log
+docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 version' >> build-logs/${repository}.${build_num}.build.log
+echo -e "\nPlugin Versions :\n" >> build-logs/${repository}.${build_num}.build.log
+docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 list-plugins' >> build-logs/${repository}.${build_num}.build.log
+echo -e "\nBuild Log :\n" >> build-logs/${repository}.${build_num}.build.log
+docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}"' >> build-logs/${repository}.${build_num}.build.log
 
 echo "Log saved to : build-logs/${repository}.${build_num}.build.log"
 
@@ -238,7 +250,7 @@ echo "Stats written to : build-stats/${repository}.${build_num}.stats"
 process_stats build-stats/${repository}.${build_num}.stats
 
 duration=$(( end - start ))
-echo "Build #${build_num}  | ${repository} took ${duration} seconds. ${status}" |tee -a results.log
+echo "Build #${build_num}  | ${repository} took ${duration} seconds. ${status}" |tee -a results.${image_tag}.log
 
 }
 
@@ -345,7 +357,7 @@ docker exec -it jenkinz /bin/bash
 function list-tags
 {
 
-url="https://registry.hub.docker.com/v2/repositories/library/jenkins/tags?page_size=1024"
+url="https://registry.hub.docker.com/v2/repositories/jenkinsci/jenkins/tags?page_size=1024"
 
 IFS=$'\n' read -r -d '' -a tag_array \
   < <(set -o pipefail; curl -L -s --fail -k "$url" | jq -r '."results"[]["name"]' |grep alpine && printf '\0')
