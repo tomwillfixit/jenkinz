@@ -60,13 +60,13 @@ jenkinz --repository demo -f Jenkinsfile.build_only
 
 ```
 
-Run a 5 builds using a Jenkinsfile with a different name :
+Run 5 builds using a Jenkinsfile with a different name :
 ```
 jenkinz --repository demo -f Jenkinsfile.build_only -b 5
 
 ```
 
-Run a 5 builds (uses default Jenkinsfile in top level of the demo repository) :
+Run 5 builds (uses default Jenkinsfile in top level of the demo repository) :
 ```
 jenkinz --repository demo -b 5 
 
@@ -105,6 +105,16 @@ Run a build against a specific version :
 
 jenkinz --image jenkinsci/jenkins:2.107.3-alpine --repository demo
 
+```
+
+Run a build using a specific plugin version and specific version of Jenkins
+
+Firstly, update the version of plugin you want to use in the [plugins.list](config/plugins.list) file.
+Secondly, specify the version of jenkins using the --image option.
+
+For example :
+```
+jenkinz --image jenkinsci/jenkins:2.107.3-alpine --repository demo
 ```
 
 ## Cleanup
