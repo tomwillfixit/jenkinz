@@ -46,7 +46,7 @@ Run : jenkinz usage
 
 Step 3 :
 
-Run some builds.
+Let's run some builds.  Build logs are stored in the build-logs directory and an example log can be found [here](build-logs/example.build.log).
 
 Run a single build (uses default Jenkinsfile in top level of the demo repository) :
 ```

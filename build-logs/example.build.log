@@ -1,0 +1,1001 @@
+Jenkins Version :
+
+2.107.3
+
+Plugin Versions :
+
+job-import-plugin                     Job Import Plugin                                                2.1
+shiningpanda                          ShiningPanda Plugin                                              0.23
+ssh-credentials                       SSH Credentials Plugin                                           1.13
+conditional-buildstep                 Conditional BuildStep                                            1.3.6
+workflow-durable-task-step            Pipeline: Nodes and Processes                                    2.19
+workflow-step-api                     Pipeline: Step API                                               2.14
+blueocean-autofavorite                Autofavorite for Blue Ocean                                      1.2.2
+blueocean-core-js                     Blue Ocean Core JS                                               1.5.0
+build-failure-analyzer                Build Failure Analyzer                                           1.19.2
+blueocean-web                         Web for Blue Ocean                                               1.5.0
+favorite                              Favorite                                                         2.3.1
+metrics-diskusage                     Metrics Disk Usage Plugin                                        3.0.0
+parallel-test-executor                Parallel Test Executor Plugin                                    1.10
+credentials-binding                   Credentials Binding Plugin                                       1.16
+blueocean-rest-impl                   REST Implementation for Blue Ocean                               1.5.0
+pipeline-stage-view                   Pipeline: Stage View Plugin                                      2.10
+workflow-support                      Pipeline: Supporting APIs                                        2.18
+log-command                           Log Command Plugin                                               1.0.1
+git-server                            GIT server Plugin                                                1.7
+pubsub-light                          Pub-Sub "light" Bus                                              1.12
+matrix-project                        Matrix Project Plugin                                            1.13
+blueocean-i18n                        i18n for Blue Ocean                                              1.5.0
+ant                                   Ant Plugin                                                       1.8
+metrics-graphite                      Metrics Graphite Reporting Plugin                                3.0.0
+jackson2-api                          Jackson 2 API Plugin                                             2.8.11.1
+git                                   Git plugin                                                       3.8.0
+script-security                       Script Security Plugin                                           1.44
+blueocean-display-url                 Display URL for Blue Ocean                                       2.2.0
+plain-credentials                     Plain Credentials Plugin                                         1.4
+purge-job-history                     Purge Job History Plugin                                         1.1
+branch-api                            Branch API Plugin                                                2.0.20
+junit                                 JUnit Plugin                                                     1.24
+workflow-job                          Pipeline: Job                                                    2.21
+ivy                                   Ivy Plugin                                                       1.28
+workflow-aggregator                   Pipeline                                                         2.5
+ez-templates                          EZ Templates                                                     1.3.2
+jsch                                  JSch dependency plugin                                           0.1.54.2
+mapdb-api                             MapDB API Plugin                                                 1.0.9.0
+subversion                            Subversion Plug-in                                               2.10.5
+pipeline-model-extensions             Pipeline: Declarative Extension Points API                       1.2.9
+pipeline-graph-analysis               Pipeline Graph Analysis Plugin                                   1.6
+build-history-metrics-plugin          Build History Metrics plugin                                     1.2
+display-url-api                       Display URL API                                                  2.2.0
+join                                  Join plugin                                                      1.21
+email-ext                             Email Extension Plugin                                           2.62
+postbuild-task                        Hudson Post build task                                           1.8
+greenballs                            Green Balls                                                      1.15
+pipeline-utility-steps                Pipeline Utility Steps                                           2.1.0
+github-pullrequest                    GitHub Integration Plugin                                        0.1.0-rc29
+htmlpublisher                         HTML Publisher plugin                                            1.16
+timestamper                           Timestamper                                                      1.8.10
+jobConfigHistory                      Job Configuration History Plugin                                 2.18
+blueocean-rest                        REST API for Blue Ocean                                          1.5.0
+perfpublisher                         Performance Publisher plugin                                     8.05
+ssh-slaves                            SSH Slaves plugin                                                1.26
+git-client                            Git client plugin                                                2.7.1
+aws-java-sdk                          Amazon Web Services SDK                                          1.11.264
+jenkins-multijob-plugin               Multijob plugin                                                  1.30
+monitoring                            Monitoring                                                       1.72.0
+handlebars                            JavaScript GUI Lib: Handlebars bundle plugin                     1.1.1
+durable-task                          Durable Task Plugin                                              1.22
+workflow-cps                          Pipeline: Groovy                                                 2.53
+cloudbees-bitbucket-branch-source     Bitbucket Branch Source Plugin                                   2.2.11
+external-monitor-job                  External Monitor Job Type Plugin                                 1.7
+pipeline-model-declarative-agent      Pipeline: Declarative Agent API                                  1.1.1
+github                                GitHub plugin                                                    1.29.0
+github-scm-filter-aged-refs           GitHub Aged References SCM Filter Plugin                         0.1.0
+javadoc                               Javadoc Plugin                                                   1.4
+multiple-scms                         Multiple SCMs plugin                                             0.6
+built-on-column                       built-on-column                                                  1.1
+maven-plugin                          Maven Integration plugin                                         3.1.2
+pipeline-rest-api                     Pipeline: REST API Plugin                                        2.10
+token-macro                           Token Macro Plugin                                               2.5
+promoted-builds                       promoted builds plugin                                           3.1
+credentials                           Credentials Plugin                                               2.1.16
+github-organization-folder            GitHub Organization Folder Plugin                                1.6
+jquery-detached                       JavaScript GUI Lib: jQuery bundles (jQuery and jQuery UI) plugin 1.2.1
+workflow-scm-step                     Pipeline: SCM Step                                               2.6
+build-metrics                         build-metrics                                                    1.3
+scm-api                               SCM API Plugin                                                   2.2.7
+blueocean-bitbucket-pipeline          Bitbucket Pipeline for Blue Ocean                                1.5.0
+command-launcher                      Command Agent Launcher Plugin                                    1.2
+embeddable-build-status               embeddable-build-status                                          1.9
+ansicolor                             AnsiColor                                                        0.5.2
+jquery-ui                             jQuery UI plugin                                                 1.0.2
+cobertura                             Cobertura Plugin                                                 1.12
+pipeline-model-api                    Pipeline: Model API                                              1.2.9
+blueocean-pipeline-api-impl           Pipeline implementation for Blue Ocean                           1.5.0
+ssh-agent                             SSH Agent Plugin                                                 1.15
+envinject-api                         EnvInject API Plugin                                             1.5
+blueocean-github-pipeline             GitHub Pipeline for Blue Ocean                                   1.5.0
+packer                                packer                                                           1.5
+bouncycastle-api                      bouncycastle API Plugin                                          2.16.2
+cloudbees-folder                      Folders Plugin                                                   6.4
+blueocean-personalization             Personalization for Blue Ocean                                   1.5.0
+mailer                                Mailer Plugin                                                    1.21
+simple-theme-plugin                   Simple Theme Plugin                                              0.4
+global-build-stats                    Hudson global-build-stats plugin                                 1.5
+matrix-auth                           Matrix Authorization Strategy Plugin                             2.2
+slack                                 Slack Notification Plugin                                        2.3
+mercurial                             Mercurial plugin                                                 2.3
+pipeline-model-definition             Pipeline: Declarative                                            1.2.9
+docker-build-step                     docker-build-step                                                2.0
+envinject                             Environment Injector Plugin                                      2.1.5
+msbuild                               MSBuild Plugin                                                   1.29
+pipeline-build-step                   Pipeline: Build Step                                             2.7
+sse-gateway                           Server Sent Events (SSE) Gateway Plugin                          1.15
+blueocean-config                      Config API for Blue Ocean                                        1.5.0
+metrics                               Metrics Plugin                                                   3.1.2.11
+jenkinswalldisplay                    Wall Display Master Project                                      0.6.34
+parameterized-trigger                 Parameterized Trigger plugin                                     2.35.2
+docker-commons                        Docker Commons Plugin                                            1.11
+config-file-provider                  Config File Provider Plugin                                      2.18
+jquery                                jQuery plugin                                                    1.12.4-0
+job-dsl                               Job DSL                                                          1.69
+antisamy-markup-formatter             OWASP Markup Formatter Plugin                                    1.5
+pipeline-input-step                   Pipeline: Input Step                                             2.8
+disable-github-multibranch-status     Disable GitHub Multibranch Status Plugin                         1.1
+pipeline-stage-tags-metadata          Pipeline: Stage Tags Metadata                                    1.2.9
+build-pipeline-plugin                 Build Pipeline Plugin                                            1.5.8
+variant                               Variant Plugin                                                   1.1
+create-fingerprint                    Fingerprint Plugin                                               1.2
+github-api                            GitHub API Plugin                                                1.90
+scm-filter-branch-pr                  SCM Filter Branch PR Plugin                                      0.3
+blueocean-pipeline-scm-api            Pipeline SCM API for Blue Ocean                                  1.5.0
+blueocean-commons                     Common API for Blue Ocean                                        1.5.0
+structs                               Structs Plugin                                                   1.14
+jclouds-jenkins                       JClouds plugin                                                   2.14
+workflow-basic-steps                  Pipeline: Basic Steps                                            2.7
+momentjs                              JavaScript GUI Lib: Moment.js bundle plugin                      1.1.1
+blueocean-jwt                         JWT for Blue Ocean                                               1.5.0
+github-branch-source                  GitHub Branch Source Plugin                                      2.3.4
+cvs                                   CVS Plug-in                                                      2.14
+pipeline-milestone-step               Pipeline: Milestone Step                                         1.3.1
+ace-editor                            JavaScript GUI Lib: ACE Editor bundle plugin                     1.1
+pipeline-github-lib                   Pipeline: GitHub Groovy Libraries                                1.0
+copyartifact                          Copy Artifact Plugin                                             1.39.1
+docker-workflow                       Docker Pipeline                                                  1.15.1
+dashboard-view                        Dashboard View                                                   2.9.11
+icon-shim                             Icon Shim Plugin                                                 2.0.3
+authentication-tokens                 Authentication Tokens API Plugin                                 1.3
+pam-auth                              PAM Authentication plugin                                        1.3
+node-iterator-api                     Node Iterator API Plugin                                         1.5.0
+handy-uri-templates-2-api             Handy Uri Templates 2.x API Plugin                               2.1.6-1.0
+log-parser                            Log Parser Plugin                                                2.0
+ghprb                                 GitHub Pull Request Builder                                      1.40.0
+github-scm-trait-notification-context Github Custom Notification Context SCM Behaviour                 1.1
+audit-trail                           Audit Trail                                                      2.2
+workflow-api                          Pipeline: API                                                    2.27
+emailext-template                     Email Extension Template Plugin                                  1.0
+jenkins-design-language               Design Language                                                  1.5.0
+logstash                              Logstash                                                         2.0.0
+pipeline-stage-step                   Pipeline: Stage Step                                             2.3
+exclusive-execution                   Exclusive Execution Plugin                                       0.8
+workflow-cps-global-lib               Pipeline: Shared Groovy Libraries                                2.9
+disk-usage                            disk-usage plugin                                                0.28
+run-condition                         Run Condition Plugin                                             1.0
+gradle                                Gradle Plugin                                                    1.28
+swarm                                 Self-Organizing Swarm Plug-in Modules                            3.12
+build-monitor-plugin                  Build Monitor View                                               1.12+build.201708172343
+workflow-multibranch                  Pipeline: Multibranch                                            2.18
+github-oauth                          GitHub Authentication plugin                                     0.29
+apache-httpcomponents-client-4-api    Apache HttpComponents Client 4.x API Plugin                      4.5.5-2.0
+blueocean-pipeline-editor             Blue Ocean Pipeline Editor                                       1.5.0
+blueocean-dashboard                   Dashboard for Blue Ocean                                         1.5.0
+blueocean-git-pipeline                Git Pipeline for Blue Ocean                                      1.5.0
+async-http-client                     Async Http Client                                                1.9.40.0
+claim                                 Claim Plugin                                                     2.15
+blueocean-events                      Events API for Blue Ocean                                        1.5.0
+translation                           Translation Assistance plugin                                    1.16
+
+Build Log :
+
+Started from command line by ha:////4JPMKo4YiiGHj7T/yxwLVZ7WzjY/mqpRMyteANPGuMiXAAAAmx+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAzOEgZ+/dLi1CL9xLz8vMrc/NJiAJjzDjjEAAAAanonymous
+Running in Durability level: MAX_SURVIVABILITY
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] node
+Running on ha:////4PSUw3N7h9KO6N19We0d8Q58rNVYCTLcOUioPPq7UglZAAAArh+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAyJEgZl/eT83ILSktQi/azUvOzMvCrdxPTUvBLdZCCRX6xraGCkDwDJpHjz2AAAAA==jenkinz-agent-centos-102 in /jenkinz/workspace/demo
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] {
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] withEnv
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] {
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] stage
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] { (Build Memcached Container Image)
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] retry
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] {
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] script
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] {
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] sh
+[demo] Running shell script
++ make build
+fatal: Not a git repository (or any parent up to mount point /jenkinz)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+fatal: Not a git repository (or any parent up to mount point /jenkinz)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+export SHA= ; \
+export BRANCH= ; \
+docker build --no-cache\
+	-t memcached/memcached:1.5.4 \
+	--build-arg AUTHOR="tomwillfixit" \
+	--build-arg MEMCACHED_VERSION=1.5.4 \
+	--build-arg MEMCACHED_SHA1=29cb75cc234dbaceed6e89db029af8363706f0fe \
+	--build-arg GIT_SHA=${SHA} \
+	--build-arg GIT_BRANCH=${BRANCH} \
+	.
+Sending build context to Docker daemon   16.9kB
+Step 1/19 : FROM alpine:3.7
+ ---> 3fd9065eaf02
+Step 2/19 : RUN adduser -D memcache
+ ---> Running in 49eb931c824a
+Removing intermediate container 49eb931c824a
+ ---> f295e2fe931e
+Step 3/19 : ARG MEMCACHED_VERSION
+ ---> Running in 1e516a25d9a4
+Removing intermediate container 1e516a25d9a4
+ ---> 7605a34efc5c
+Step 4/19 : ENV MEMCACHED_VERSION ${MEMCACHED_VERSION}
+ ---> Running in 331835a5557d
+Removing intermediate container 331835a5557d
+ ---> 1623cc6d9ea5
+Step 5/19 : ARG MEMCACHED_SHA1
+ ---> Running in a9035d13a3d8
+Removing intermediate container a9035d13a3d8
+ ---> 619120950c47
+Step 6/19 : ENV MEMCACHED_SHA1 ${MEMCACHED_SHA1}
+ ---> Running in bd3523bd60e3
+Removing intermediate container bd3523bd60e3
+ ---> 205c2b2e3e98
+Step 7/19 : RUN set -x 		&& apk add --no-cache --virtual .build-deps 		ca-certificates 		coreutils 		cyrus-sasl-dev 		dpkg-dev dpkg 		gcc git 		libc-dev 		libevent-dev 		libressl 		linux-headers 		make 		perl 		perl-utils 		tar 		&& wget -O memcached.tar.gz "https://memcached.org/files/memcached-$MEMCACHED_VERSION.tar.gz" 	&& echo "$MEMCACHED_SHA1  memcached.tar.gz" | sha1sum -c - 	&& mkdir -p /usr/src/memcached 	&& tar -xzf memcached.tar.gz -C /usr/src/memcached --strip-components=1 	&& rm memcached.tar.gz 		&& cd /usr/src/memcached 		&& ./configure 		--build="$(dpkg-architecture --query DEB_BUILD_GNU_TYPE)" 		--enable-sasl 	&& make -j "$(nproc)" 		&& make test 	&& make install 		&& cd / && rm -rf /usr/src/memcached 		&& runDeps="$( 		scanelf --needed --nobanner --format '%n#p' --recursive /usr/local 			| tr ',' '\n' 			| sort -u 			| awk 'system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }' 	)" 	&& apk add --virtual .memcached-rundeps $runDeps 	&& apk del .build-deps 		&& memcached -V
+ ---> Running in c44d64c22987
++ apk add --no-cache --virtual .build-deps ca-certificates coreutils cyrus-sasl-dev dpkg-dev dpkg gcc git libc-dev libevent-dev libressl linux-headers make perl perl-utils tar
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.7/main/x86_64/APKINDEX.tar.gz
+fetch http://dl-cdn.alpinelinux.org/alpine/v3.7/community/x86_64/APKINDEX.tar.gz
+(1/51) Upgrading musl (1.1.18-r2 -> 1.1.18-r3)
+(2/51) Installing ca-certificates (20171114-r0)
+(3/51) Installing libattr (2.4.47-r6)
+(4/51) Installing libacl (2.2.52-r3)
+(5/51) Installing coreutils (8.28-r0)
+(6/51) Installing db (5.3.28-r0)
+(7/51) Installing libsasl (2.1.26-r11)
+(8/51) Installing pkgconf (1.3.10-r0)
+(9/51) Installing cyrus-sasl-dev (2.1.26-r11)
+(10/51) Installing libbz2 (1.0.6-r6)
+(11/51) Installing perl (5.26.2-r0)
+(12/51) Installing dpkg-dev (1.18.24-r0)
+(13/51) Installing xz-libs (5.2.3-r1)
+(14/51) Installing xz (5.2.3-r1)
+(15/51) Installing dpkg (1.18.24-r0)
+(16/51) Installing binutils-libs (2.28-r3)
+(17/51) Installing binutils (2.28-r3)
+(18/51) Installing gmp (6.1.2-r1)
+(19/51) Installing isl (0.18-r0)
+(20/51) Installing libgomp (6.4.0-r5)
+(21/51) Installing libatomic (6.4.0-r5)
+(22/51) Installing libgcc (6.4.0-r5)
+(23/51) Installing mpfr3 (3.1.5-r1)
+(24/51) Installing mpc1 (1.0.3-r1)
+(25/51) Installing libstdc++ (6.4.0-r5)
+(26/51) Installing gcc (6.4.0-r5)
+(27/51) Installing libssh2 (1.8.0-r2)
+(28/51) Installing libcurl (7.59.0-r0)
+(29/51) Installing expat (2.2.5-r0)
+(30/51) Installing pcre2 (10.30-r0)
+(31/51) Installing git (2.15.0-r1)
+(32/51) Installing musl-dev (1.1.18-r3)
+(33/51) Installing libc-dev (0.7.1-r0)
+(34/51) Installing libffi (3.2.1-r4)
+(35/51) Installing gdbm (1.13-r1)
+(36/51) Installing ncurses-terminfo-base (6.0_p20171125-r0)
+(37/51) Installing ncurses-terminfo (6.0_p20171125-r0)
+(38/51) Installing ncurses-libs (6.0_p20171125-r0)
+(39/51) Installing readline (7.0.003-r0)
+(40/51) Installing sqlite-libs (3.21.0-r0)
+(41/51) Installing python2 (2.7.14-r2)
+(42/51) Installing libevent (2.1.8-r2)
+(43/51) Installing libevent-dev (2.1.8-r2)
+(44/51) Installing libressl2.6-libtls (2.6.3-r0)
+(45/51) Installing libressl (2.6.3-r0)
+(46/51) Installing linux-headers (4.4.6-r2)
+(47/51) Installing make (4.2.1-r0)
+(48/51) Installing perl-utils (5.26.2-r0)
+(49/51) Installing tar (1.29-r1)
+(50/51) Installing .build-deps (0)
+(51/51) Upgrading musl-utils (1.1.18-r2 -> 1.1.18-r3)
+Executing busybox-1.27.2-r7.trigger
+Executing ca-certificates-20171114-r0.trigger
+OK: 213 MiB in 60 packages
++ wget -O memcached.tar.gz https://memcached.org/files/memcached-1.5.4.tar.gz
+Connecting to memcached.org (107.170.231.145:443)
+memcached.tar.gz      58% |******************             |   255k  0:00:00 ETA
+memcached.tar.gz     100% |*******************************|   438k  0:00:00 ETA
+
++ + sha1sum -c -
+echo 29cb75cc234dbaceed6e89db029af8363706f0fe  memcached.tar.gz
+memcached.tar.gz: OK
++ mkdir -p /usr/src/memcached
++ tar -xzf memcached.tar.gz -C /usr/src/memcached --strip-components=1
++ rm memcached.tar.gz
++ cd /usr/src/memcached
++ dpkg-architecture --query DEB_BUILD_GNU_TYPE
++ ./configure --build=x86_64-linux-musl --enable-sasl
+checking build system type... x86_64-pc-linux-musl
+checking host system type... x86_64-pc-linux-musl
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether build environment is sane... yes
+checking for a thread-safe mkdir -p... /bin/mkdir -p
+checking for gawk... no
+checking for mawk... no
+checking for nawk... no
+checking for awk... awk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking for gcc... gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... o
+checking whether we are using the GNU C compiler... yes
+checking whether gcc accepts -g... yes
+checking for gcc option to accept ISO C89... none needed
+checking whether gcc understands -c and -o together... yes
+checking for style of include used by make... GNU
+checking dependency style of gcc... gcc3
+checking how to run the C preprocessor... gcc -E
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking for icc in use... no
+checking for clang in use... no
+checking for ANSI C header files... yes
+checking for sys/types.h... yes
+checking for sys/stat.h... yes
+checking for stdlib.h... yes
+checking for string.h... yes
+checking for memory.h... yes
+checking for strings.h... yes
+checking for inttypes.h... yes
+checking for stdint.h... yes
+checking for unistd.h... yes
+checking whether __SUNPRO_C is declared... no
+checking for gcc option to accept ISO C99... none needed
+checking sasl/sasl.h usability... yes
+checking sasl/sasl.h presence... yes
+checking for sasl/sasl.h... yes
+checking for SASL_CB_GETCONF... no
+checking for library containing sasl_server_init... -lsasl2
+checking for gcov... /usr/bin/gcov
+checking for main in -lgcov... yes
+checking for library containing clock_gettime... none required
+checking for library containing socket... none required
+checking for library containing gethostbyname... none required
+checking for libevent directory... (system)
+checking for library containing umem_cache_create... no
+checking for library containing gethugepagesizes... no
+checking for stdbool.h that conforms to C99... yes
+checking for _Bool... yes
+checking for inttypes.h... (cached) yes
+checking for sasl_callback_ft... yes
+checking for print macros for integers (C99 section 7.8.1)... yes
+checking for an ANSI C-conforming const... yes
+checking for socklen_t... yes
+checking for endianness... little
+checking for htonll... no
+checking for library containing pthread_create... none required
+checking for mlockall... yes
+checking for getpagesizes... no
+checking for memcntl... no
+checking for sigignore... yes
+checking for clock_gettime... yes
+checking for accept4... yes
+checking for getopt_long... yes
+checking for alignment... none
+checking for GCC atomics... yes
+checking for GCC 64bit atomics... no
+checking for setppriv... no
+checking for pledge... no
+checking umem.h usability... no
+checking umem.h presence... no
+checking for umem.h... no
+checking for xml2rfc... no
+checking for xsltproc... no
+checking that generated files are newer than configure... done
+configure: creating ./config.status
+config.status: creating Makefile
+config.status: creating doc/Makefile
+config.status: creating config.h
+config.status: executing depfiles commands
++ nproc
++ make -j 8
+make  all-recursive
+make[1]: Entering directory '/usr/src/memcached'
+Making all in doc
+make[2]: Entering directory '/usr/src/memcached/doc'
+make  all-am
+make[3]: Entering directory '/usr/src/memcached/doc'
+make[3]: Nothing to be done for 'all-am'.
+make[3]: Leaving directory '/usr/src/memcached/doc'
+make[2]: Leaving directory '/usr/src/memcached/doc'
+make[2]: Entering directory '/usr/src/memcached'
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-memcached.o -MD -MP -MF .deps/memcached-memcached.Tpo -c -o memcached-memcached.o `test -f 'memcached.c' || echo './'`memcached.c
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-hash.o -MD -MP -MF .deps/memcached-hash.Tpo -c -o memcached-hash.o `test -f 'hash.c' || echo './'`hash.c
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-jenkins_hash.o -MD -MP -MF .deps/memcached-jenkins_hash.Tpo -c -o memcached-jenkins_hash.o `test -f 'jenkins_hash.c' || echo './'`jenkins_hash.c
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-murmur3_hash.o -MD -MP -MF .deps/memcached-murmur3_hash.Tpo -c -o memcached-murmur3_hash.o `test -f 'murmur3_hash.c' || echo './'`murmur3_hash.c
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-slabs.o -MD -MP -MF .deps/memcached-slabs.Tpo -c -o memcached-slabs.o `test -f 'slabs.c' || echo './'`slabs.c
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-items.o -MD -MP -MF .deps/memcached-items.Tpo -c -o memcached-items.o `test -f 'items.c' || echo './'`items.c
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-assoc.o -MD -MP -MF .deps/memcached-assoc.Tpo -c -o memcached-assoc.o `test -f 'assoc.c' || echo './'`assoc.c
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-thread.o -MD -MP -MF .deps/memcached-thread.Tpo -c -o memcached-thread.o `test -f 'thread.c' || echo './'`thread.c
+mv -f .deps/memcached-hash.Tpo .deps/memcached-hash.Po
+mv -f .deps/memcached-murmur3_hash.Tpo .deps/memcached-murmur3_hash.Po
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-daemon.o -MD -MP -MF .deps/memcached-daemon.Tpo -c -o memcached-daemon.o `test -f 'daemon.c' || echo './'`daemon.c
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-stats.o -MD -MP -MF .deps/memcached-stats.Tpo -c -o memcached-stats.o `test -f 'stats.c' || echo './'`stats.c
+mv -f .deps/memcached-jenkins_hash.Tpo .deps/memcached-jenkins_hash.Po
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-util.o -MD -MP -MF .deps/memcached-util.Tpo -c -o memcached-util.o `test -f 'util.c' || echo './'`util.c
+mv -f .deps/memcached-daemon.Tpo .deps/memcached-daemon.Po
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-bipbuffer.o -MD -MP -MF .deps/memcached-bipbuffer.Tpo -c -o memcached-bipbuffer.o `test -f 'bipbuffer.c' || echo './'`bipbuffer.c
+mv -f .deps/memcached-assoc.Tpo .deps/memcached-assoc.Po
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-logger.o -MD -MP -MF .deps/memcached-logger.Tpo -c -o memcached-logger.o `test -f 'logger.c' || echo './'`logger.c
+mv -f .deps/memcached-stats.Tpo .deps/memcached-stats.Po
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-crawler.o -MD -MP -MF .deps/memcached-crawler.Tpo -c -o memcached-crawler.o `test -f 'crawler.c' || echo './'`crawler.c
+mv -f .deps/memcached-bipbuffer.Tpo .deps/memcached-bipbuffer.Po
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-itoa_ljust.o -MD -MP -MF .deps/memcached-itoa_ljust.Tpo -c -o memcached-itoa_ljust.o `test -f 'itoa_ljust.c' || echo './'`itoa_ljust.c
+mv -f .deps/memcached-util.Tpo .deps/memcached-util.Po
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-slab_automove.o -MD -MP -MF .deps/memcached-slab_automove.Tpo -c -o memcached-slab_automove.o `test -f 'slab_automove.c' || echo './'`slab_automove.c
+mv -f .deps/memcached-slabs.Tpo .deps/memcached-slabs.Po
+mv -f .deps/memcached-itoa_ljust.Tpo .deps/memcached-itoa_ljust.Po
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-cache.o -MD -MP -MF .deps/memcached-cache.Tpo -c -o memcached-cache.o `test -f 'cache.c' || echo './'`cache.c
+gcc -DHAVE_CONFIG_H -I.  -DNDEBUG   -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached-sasl_defs.o -MD -MP -MF .deps/memcached-sasl_defs.Tpo -c -o memcached-sasl_defs.o `test -f 'sasl_defs.c' || echo './'`sasl_defs.c
+mv -f .deps/memcached-logger.Tpo .deps/memcached-logger.Po
+mv -f .deps/memcached-thread.Tpo .deps/memcached-thread.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-memcached.o -MD -MP -MF .deps/memcached_debug-memcached.Tpo -c -o memcached_debug-memcached.o `test -f 'memcached.c' || echo './'`memcached.c
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-hash.o -MD -MP -MF .deps/memcached_debug-hash.Tpo -c -o memcached_debug-hash.o `test -f 'hash.c' || echo './'`hash.c
+mv -f .deps/memcached-slab_automove.Tpo .deps/memcached-slab_automove.Po
+mv -f .deps/memcached-crawler.Tpo .deps/memcached-crawler.Po
+mv -f .deps/memcached-sasl_defs.Tpo .deps/memcached-sasl_defs.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-jenkins_hash.o -MD -MP -MF .deps/memcached_debug-jenkins_hash.Tpo -c -o memcached_debug-jenkins_hash.o `test -f 'jenkins_hash.c' || echo './'`jenkins_hash.c
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-murmur3_hash.o -MD -MP -MF .deps/memcached_debug-murmur3_hash.Tpo -c -o memcached_debug-murmur3_hash.o `test -f 'murmur3_hash.c' || echo './'`murmur3_hash.c
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-slabs.o -MD -MP -MF .deps/memcached_debug-slabs.Tpo -c -o memcached_debug-slabs.o `test -f 'slabs.c' || echo './'`slabs.c
+mv -f .deps/memcached-cache.Tpo .deps/memcached-cache.Po
+mv -f .deps/memcached_debug-hash.Tpo .deps/memcached_debug-hash.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-items.o -MD -MP -MF .deps/memcached_debug-items.Tpo -c -o memcached_debug-items.o `test -f 'items.c' || echo './'`items.c
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-assoc.o -MD -MP -MF .deps/memcached_debug-assoc.Tpo -c -o memcached_debug-assoc.o `test -f 'assoc.c' || echo './'`assoc.c
+mv -f .deps/memcached_debug-murmur3_hash.Tpo .deps/memcached_debug-murmur3_hash.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-thread.o -MD -MP -MF .deps/memcached_debug-thread.Tpo -c -o memcached_debug-thread.o `test -f 'thread.c' || echo './'`thread.c
+mv -f .deps/memcached_debug-jenkins_hash.Tpo .deps/memcached_debug-jenkins_hash.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-daemon.o -MD -MP -MF .deps/memcached_debug-daemon.Tpo -c -o memcached_debug-daemon.o `test -f 'daemon.c' || echo './'`daemon.c
+mv -f .deps/memcached_debug-assoc.Tpo .deps/memcached_debug-assoc.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-stats.o -MD -MP -MF .deps/memcached_debug-stats.Tpo -c -o memcached_debug-stats.o `test -f 'stats.c' || echo './'`stats.c
+mv -f .deps/memcached-items.Tpo .deps/memcached-items.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-util.o -MD -MP -MF .deps/memcached_debug-util.Tpo -c -o memcached_debug-util.o `test -f 'util.c' || echo './'`util.c
+mv -f .deps/memcached_debug-daemon.Tpo .deps/memcached_debug-daemon.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-bipbuffer.o -MD -MP -MF .deps/memcached_debug-bipbuffer.Tpo -c -o memcached_debug-bipbuffer.o `test -f 'bipbuffer.c' || echo './'`bipbuffer.c
+mv -f .deps/memcached_debug-stats.Tpo .deps/memcached_debug-stats.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-logger.o -MD -MP -MF .deps/memcached_debug-logger.Tpo -c -o memcached_debug-logger.o `test -f 'logger.c' || echo './'`logger.c
+mv -f .deps/memcached_debug-bipbuffer.Tpo .deps/memcached_debug-bipbuffer.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-crawler.o -MD -MP -MF .deps/memcached_debug-crawler.Tpo -c -o memcached_debug-crawler.o `test -f 'crawler.c' || echo './'`crawler.c
+mv -f .deps/memcached_debug-thread.Tpo .deps/memcached_debug-thread.Po
+mv -f .deps/memcached_debug-util.Tpo .deps/memcached_debug-util.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-itoa_ljust.o -MD -MP -MF .deps/memcached_debug-itoa_ljust.Tpo -c -o memcached_debug-itoa_ljust.o `test -f 'itoa_ljust.c' || echo './'`itoa_ljust.c
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-slab_automove.o -MD -MP -MF .deps/memcached_debug-slab_automove.Tpo -c -o memcached_debug-slab_automove.o `test -f 'slab_automove.c' || echo './'`slab_automove.c
+mv -f .deps/memcached_debug-slabs.Tpo .deps/memcached_debug-slabs.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-cache.o -MD -MP -MF .deps/memcached_debug-cache.Tpo -c -o memcached_debug-cache.o `test -f 'cache.c' || echo './'`cache.c
+mv -f .deps/memcached_debug-slab_automove.Tpo .deps/memcached_debug-slab_automove.Po
+mv -f .deps/memcached_debug-itoa_ljust.Tpo .deps/memcached_debug-itoa_ljust.Po
+gcc -DHAVE_CONFIG_H -I.    -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT memcached_debug-sasl_defs.o -MD -MP -MF .deps/memcached_debug-sasl_defs.Tpo -c -o memcached_debug-sasl_defs.o `test -f 'sasl_defs.c' || echo './'`sasl_defs.c
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT sizes.o -MD -MP -MF .deps/sizes.Tpo -c -o sizes.o sizes.c
+mv -f .deps/memcached_debug-cache.Tpo .deps/memcached_debug-cache.Po
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT testapp.o -MD -MP -MF .deps/testapp.Tpo -c -o testapp.o testapp.c
+mv -f .deps/sizes.Tpo .deps/sizes.Po
+mv -f .deps/memcached_debug-sasl_defs.Tpo .deps/memcached_debug-sasl_defs.Po
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT util.o -MD -MP -MF .deps/util.Tpo -c -o util.o util.c
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT cache.o -MD -MP -MF .deps/cache.Tpo -c -o cache.o cache.c
+mv -f .deps/memcached_debug-logger.Tpo .deps/memcached_debug-logger.Po
+gcc -DHAVE_CONFIG_H -I.     -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls -MT timedrun.o -MD -MP -MF .deps/timedrun.Tpo -c -o timedrun.o timedrun.c
+mv -f .deps/cache.Tpo .deps/cache.Po
+gcc  -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls   -o sizes sizes.o  -levent -lsasl2 
+mv -f .deps/memcached_debug-crawler.Tpo .deps/memcached_debug-crawler.Po
+mv -f .deps/util.Tpo .deps/util.Po
+mv -f .deps/timedrun.Tpo .deps/timedrun.Po
+gcc  -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls   -o timedrun timedrun.o  -levent -lsasl2 
+mv -f .deps/memcached_debug-items.Tpo .deps/memcached_debug-items.Po
+mv -f .deps/memcached-memcached.Tpo .deps/memcached-memcached.Po
+gcc  -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls   -o memcached memcached-memcached.o memcached-hash.o memcached-jenkins_hash.o memcached-murmur3_hash.o memcached-slabs.o memcached-items.o memcached-assoc.o memcached-thread.o memcached-daemon.o memcached-stats.o memcached-util.o memcached-bipbuffer.o memcached-logger.o memcached-crawler.o memcached-itoa_ljust.o memcached-slab_automove.o memcached-cache.o    memcached-sasl_defs.o    -levent -lsasl2 
+mv -f .deps/testapp.Tpo .deps/testapp.Po
+gcc  -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls   -o testapp testapp.o util.o cache.o  -levent -lsasl2 
+mv -f .deps/memcached_debug-memcached.Tpo .deps/memcached_debug-memcached.Po
+gcc -fprofile-arcs -ftest-coverage -DMEMCACHED_DEBUG -g -O2 -pthread -pthread -Wall -Werror -pedantic -Wmissing-prototypes -Wmissing-declarations -Wredundant-decls   -o memcached-debug memcached_debug-memcached.o memcached_debug-hash.o memcached_debug-jenkins_hash.o memcached_debug-murmur3_hash.o memcached_debug-slabs.o memcached_debug-items.o memcached_debug-assoc.o memcached_debug-thread.o memcached_debug-daemon.o memcached_debug-stats.o memcached_debug-util.o memcached_debug-bipbuffer.o memcached_debug-logger.o memcached_debug-crawler.o memcached_debug-itoa_ljust.o memcached_debug-slab_automove.o memcached_debug-cache.o    memcached_debug-sasl_defs.o  -lgcov   -levent -lsasl2 
+make[2]: Leaving directory '/usr/src/memcached'
+make[1]: Leaving directory '/usr/src/memcached'
++ make test
+./sizes
+Slab Stats	64
+Thread stats	-6480
+Global stats	168
+Settings	248
+Item (no cas)	48
+Item (cas)	56
+Libevent thread	184
+Connection	512
+----------------------------------------
+libevent thread cumulative	6504
+Thread stats cumulative		6320
+./testapp
+1..52
+ok 1 - cache_create
+ok 2 - cache_constructor
+ok 3 - cache_constructor_fail
+ok 4 - cache_destructor
+ok 5 - cache_reuse
+ok 6 - cache_redzone
+ok 7 - issue_161
+ok 8 - strtol
+ok 9 - strtoll
+ok 10 - strtoul
+ok 11 - strtoull
+ok 12 - issue_44
+ok 13 - vperror
+ok 14 - issue_101
+Signal handled: Terminated.
+ok 15 - start_server
+ok 16 - issue_92
+ok 17 - issue_102
+ok 18 - binary_noop
+ok 19 - binary_quit
+ok 20 - binary_quitq
+ok 21 - binary_set
+ok 22 - binary_setq
+ok 23 - binary_add
+ok 24 - binary_addq
+ok 25 - binary_replace
+ok 26 - binary_replaceq
+ok 27 - binary_delete
+ok 28 - binary_deleteq
+ok 29 - binary_get
+ok 30 - binary_getq
+ok 31 - binary_getk
+ok 32 - binary_getkq
+ok 33 - binary_gat
+ok 34 - binary_gatq
+ok 35 - binary_gatk
+ok 36 - binary_gatkq
+ok 37 - binary_incr
+ok 38 - binary_incrq
+ok 39 - binary_decr
+ok 40 - binary_decrq
+ok 41 - binary_version
+ok 42 - binary_flush
+ok 43 - binary_flushq
+ok 44 - binary_append
+ok 45 - binary_appendq
+ok 46 - binary_prepend
+ok 47 - binary_prependq
+ok 48 - binary_stat
+ok 49 - binary_illegal
+ok 50 - binary_pipeline_hickup
+Signal handled: Interrupt.
+ok 51 - shutdown
+ok 52 - stop_server
+getaddrinfo(): Name does not resolve
+failed to listen on TCP port 38528: Resource temporarily unavailable
+slab class   1: chunk size        96 perslab   10922
+slab class   2: chunk size       120 perslab    8738
+slab class   3: chunk size       152 perslab    6898
+slab class   4: chunk size       192 perslab    5461
+slab class   5: chunk size       240 perslab    4369
+slab class   6: chunk size       304 perslab    3449
+slab class   7: chunk size       384 perslab    2730
+slab class   8: chunk size       480 perslab    2184
+slab class   9: chunk size       600 perslab    1747
+slab class  10: chunk size       752 perslab    1394
+slab class  11: chunk size       944 perslab    1110
+slab class  12: chunk size      1184 perslab     885
+slab class  13: chunk size      1480 perslab     708
+slab class  14: chunk size      1856 perslab     564
+slab class  15: chunk size      2320 perslab     451
+slab class  16: chunk size      2904 perslab     361
+slab class  17: chunk size      3632 perslab     288
+slab class  18: chunk size      4544 perslab     230
+slab class  19: chunk size      5680 perslab     184
+slab class  20: chunk size      7104 perslab     147
+slab class  21: chunk size      8880 perslab     118
+slab class  22: chunk size     11104 perslab      94
+slab class  23: chunk size     13880 perslab      75
+slab class  24: chunk size     17352 perslab      60
+slab class  25: chunk size     21696 perslab      48
+slab class  26: chunk size     27120 perslab      38
+slab class  27: chunk size     33904 perslab      30
+slab class  28: chunk size     42384 perslab      24
+slab class  29: chunk size     52984 perslab      19
+slab class  30: chunk size     66232 perslab      15
+slab class  31: chunk size     82792 perslab      12
+slab class  32: chunk size    103496 perslab      10
+slab class  33: chunk size    129376 perslab       8
+slab class  34: chunk size    161720 perslab       6
+slab class  35: chunk size    202152 perslab       5
+slab class  36: chunk size    252696 perslab       4
+slab class  37: chunk size    315872 perslab       3
+slab class  38: chunk size    394840 perslab       2
+slab class  39: chunk size    524288 perslab       2
+<26 server listening (auto-negotiate)
+<27 new auto-negotiating client connection
+<27 connection closed.
+slab class   1: chunk size        96 perslab   10922
+slab class   2: chunk size       120 perslab    8738
+slab class   3: chunk size       152 perslab    6898
+slab class   4: chunk size       192 perslab    5461
+slab class   5: chunk size       240 perslab    4369
+slab class   6: chunk size       304 perslab    3449
+slab class   7: chunk size       384 perslab    2730
+slab class   8: chunk size       480 perslab    2184
+slab class   9: chunk size       600 perslab    1747
+slab class  10: chunk size       752 perslab    1394
+slab class  11: chunk size       944 perslab    1110
+slab class  12: chunk size      1184 perslab     885
+slab class  13: chunk size      1480 perslab     708
+slab class  14: chunk size      1856 perslab     564
+slab class  15: chunk size      2320 perslab     451
+slab class  16: chunk size      2904 perslab     361
+slab class  17: chunk size      3632 perslab     288
+slab class  18: chunk size      4544 perslab     230
+slab class  19: chunk size      5680 perslab     184
+slab class  20: chunk size      7104 perslab     147
+slab class  21: chunk size      8880 perslab     118
+slab class  22: chunk size     11104 perslab      94
+slab class  23: chunk size     13880 perslab      75
+slab class  24: chunk size     17352 perslab      60
+slab class  25: chunk size     21696 perslab      48
+slab class  26: chunk size     27120 perslab      38
+slab class  27: chunk size     33904 perslab      30
+slab class  28: chunk size     42384 perslab      24
+slab class  29: chunk size     52984 perslab      19
+slab class  30: chunk size     66232 perslab      15
+slab class  31: chunk size     82792 perslab      12
+slab class  32: chunk size    103496 perslab      10
+slab class  33: chunk size    129376 perslab       8
+slab class  34: chunk size    161720 perslab       6
+slab class  35: chunk size    202152 perslab       5
+slab class  36: chunk size    252696 perslab       4
+slab class  37: chunk size    315872 perslab       3
+slab class  38: chunk size    394840 perslab       2
+slab class  39: chunk size    524288 perslab       2
+<26 server listening (ascii)
+<27 new ascii client connection.
+<27 connection closed.
+slab class   1: chunk size        96 perslab   10922
+slab class   2: chunk size       120 perslab    8738
+slab class   3: chunk size       152 perslab    6898
+slab class   4: chunk size       192 perslab    5461
+slab class   5: chunk size       240 perslab    4369
+slab class   6: chunk size       304 perslab    3449
+slab class   7: chunk size       384 perslab    2730
+slab class   8: chunk size       480 perslab    2184
+slab class   9: chunk size       600 perslab    1747
+slab class  10: chunk size       752 perslab    1394
+slab class  11: chunk size       944 perslab    1110
+slab class  12: chunk size      1184 perslab     885
+slab class  13: chunk size      1480 perslab     708
+slab class  14: chunk size      1856 perslab     564
+slab class  15: chunk size      2320 perslab     451
+slab class  16: chunk size      2904 perslab     361
+slab class  17: chunk size      3632 perslab     288
+slab class  18: chunk size      4544 perslab     230
+slab class  19: chunk size      5680 perslab     184
+slab class  20: chunk size      7104 perslab     147
+slab class  21: chunk size      8880 perslab     118
+slab class  22: chunk size     11104 perslab      94
+slab class  23: chunk size     13880 perslab      75
+slab class  24: chunk size     17352 perslab      60
+slab class  25: chunk size     21696 perslab      48
+slab class  26: chunk size     27120 perslab      38
+slab class  27: chunk size     33904 perslab      30
+slab class  28: chunk size     42384 perslab      24
+slab class  29: chunk size     52984 perslab      19
+slab class  30: chunk size     66232 perslab      15
+slab class  31: chunk size     82792 perslab      12
+slab class  32: chunk size    103496 perslab      10
+slab class  33: chunk size    129376 perslab       8
+slab class  34: chunk size    161720 perslab       6
+slab class  35: chunk size    202152 perslab       5
+slab class  36: chunk size    252696 perslab       4
+slab class  37: chunk size    315872 perslab       3
+slab class  38: chunk size    394840 perslab       2
+slab class  39: chunk size    524288 perslab       2
+<26 server listening (binary)
+<27 new binary client connection.
+<27 connection closed.
+Invalid value for binding protocol: http
+ -- should be one of auto, binary, or ascii
+Maximum connections must be greater than 0
+Maximum connections must be greater than 0
+Number of threads must be greater than 0
+t/00-startup.t .............. ok
+t/64bit.t ................... ok
+t/binary-extstore.t ......... skipped: extstore not enabled
+t/binary-get.t .............. ok
+t/binary-sasl.t ............. skipped: Skipping SASL tests
+t/binary.t .................. ok
+t/bogus-commands.t .......... ok
+t/cas.t ..................... ok
+t/chunked-extstore.t ........ skipped: extstore not enabled
+t/chunked-items.t ........... ok
+t/daemonize.t ............... ok
+t/dash-M.t .................. ok
+t/dyn-maxbytes.t ............ ok
+t/evictions.t ............... ok
+t/expirations.t ............. ok
+t/extstore-buckets.t ........ skipped: extstore not enabled
+t/extstore.t ................ skipped: extstore not enabled
+t/flags.t ................... ok
+Succeeded!!!
+t/flush-all.t ............... ok
+t/getandtouch.t ............. ok
+t/getset.t .................. ok
+t/idle-timeout.t ............ ok
+t/incrdecr.t ................ ok
+t/inline_asciihdr.t ......... ok
+t/issue_104.t ............... ok
+t/issue_108.t ............... ok
+t/issue_14.t ................ ok
+t/issue_140.t ............... skipped: Fix for Issue 140 was only an illusion
+t/issue_152.t ............... ok
+t/issue_163.t ............... ok
+t/issue_183.t ............... ok
+t/issue_192.t ............... ok
+t/issue_22.t ................ ok
+t/issue_260.t ............... skipped: Only possible to test #260 under artificial conditions
+t/issue_29.t ................ ok
+t/issue_3.t ................. ok
+t/issue_41.t ................ ok
+t/issue_42.t ................ ok
+t/issue_50.t ................ ok
+t/issue_61.t ................ ok
+t/issue_67.t ................ ok
+t/issue_68.t ................ ok
+t/issue_70.t ................ ok
+Item max size cannot be less than 1024 bytes.
+Cannot set item size limit higher than 1/2 of memory max.
+t/item_size_max.t ........... ok
+t/line-lengths.t ............ ok
+t/lru-crawler.t ............. ok
+t/lru-maintainer.t .......... ok
+t/lru.t ..................... ok
+t/malicious-commands.t ...... ok
+t/maxconns.t ................ ok
+t/misbehave.t ............... skipped: Privilege drop not supported
+t/multiversioning.t ......... ok
+t/noreply.t ................. ok
+t/quit.t .................... ok
+t/refhang.t ................. skipped: Test is flaky. Needs special hooks.
+t/slabhang.t ................ skipped: Test is flaky. Needs special hooks.
+t/slabs-reassign-chunked.t .. ok
+t/slabs-reassign2.t ......... ok
+t/slabs_reassign.t .......... ok
+PORT: 31641
+t/stats-conns.t ............. ok
+t/stats-detail.t ............ ok
+t/stats.t ................... ok
+t/touch.t ................... ok
+t/udp.t ..................... ok
+t/unixsocket.t .............. ok
+t/watcher.t ................. ok
+fatal: Not a git repository (or any of the parent directories): .git
+t/whitespace.t .............. skipped: Skipping tests probably because you don't have git.
+All tests successful.
+Files=67, Tests=25871, 178 wallclock secs ( 4.23 usr  0.27 sys + 10.59 cusr  3.24 csys = 18.33 CPU)
+Result: PASS
+File 'assoc.c' Lines executed:42.98% of 121 Creating 'assoc.c.gcov'
+File 'bipbuffer.c' Lines executed:77.42% of 62 Creating 'bipbuffer.c.gcov'
+File 'cache.c' Lines executed:46.25% of 80 Creating 'cache.c.gcov'
+File 'crawler.c' Lines executed:59.77% of 343 Creating 'crawler.c.gcov'
+File 'daemon.c' Lines executed:50.00% of 22 Creating 'daemon.c.gcov'
+File 'hash.c' Lines executed:100.00% of 8 Creating 'hash.c.gcov'
+File 'items.c' Lines executed:84.49% of 948 Creating 'items.c.gcov'
+File 'itoa_ljust.c' Lines executed:63.27% of 49 Creating 'itoa_ljust.c.gcov'
+File 'jenkins_hash.c' Lines executed:50.55% of 91 Creating 'jenkins_hash.c.gcov'
+File 'logger.c' Lines executed:86.92% of 344 Creating 'logger.c.gcov'
+File 'memcached.c' Lines executed:67.59% of 3440 Creating 'memcached.c.gcov'
+File 'murmur3_hash.c' Lines executed:100.00% of 32 Creating 'murmur3_hash.c.gcov'
+File 'sasl_defs.c' Lines executed:0.00% of 24 Creating 'sasl_defs.c.gcov'
+File 'slab_automove.c' Lines executed:81.16% of 69 Creating 'slab_automove.c.gcov'
+File 'slabs.c' Lines executed:81.02% of 590 Creating 'slabs.c.gcov'
+File 'stats.c' Lines executed:90.36% of 83 Creating 'stats.c.gcov'
+File 'thread.c' Lines executed:69.58% of 332 Creating 'thread.c.gcov'
+File 'util.c' Lines executed:78.02% of 91 Creating 'util.c.gcov' File '/usr/include/ctype.h' Lines executed:100.00% of 1 Creating 'ctype.h.gcov'
++ make install
+make  install-recursive
+make[1]: Entering directory '/usr/src/memcached'
+Making install in doc
+make[2]: Entering directory '/usr/src/memcached/doc'
+make  install-am
+make[3]: Entering directory '/usr/src/memcached/doc'
+make[4]: Entering directory '/usr/src/memcached/doc'
+make[4]: Nothing to be done for 'install-exec-am'.
+ /bin/mkdir -p '/usr/local/share/man/man1'
+ /usr/bin/install -c -m 644 memcached.1 '/usr/local/share/man/man1'
+make[4]: Leaving directory '/usr/src/memcached/doc'
+make[3]: Leaving directory '/usr/src/memcached/doc'
+make[2]: Leaving directory '/usr/src/memcached/doc'
+make[2]: Entering directory '/usr/src/memcached'
+make[3]: Entering directory '/usr/src/memcached'
+ /bin/mkdir -p '/usr/local/bin'
+  /usr/bin/install -c memcached '/usr/local/bin'
+ /bin/mkdir -p '/usr/local/include/memcached'
+ /usr/bin/install -c -m 644 protocol_binary.h '/usr/local/include/memcached'
+make[3]: Leaving directory '/usr/src/memcached'
+make[2]: Leaving directory '/usr/src/memcached'
+make[1]: Leaving directory '/usr/src/memcached'
++ cd /
++ rm -rf /usr/src/memcached
++ awk system("[ -e /usr/local/lib/" $1 " ]") == 0 { next } { print "so:" $1 }
++ sort -u
++ tr , \n
++ scanelf --needed --nobanner --format %n#p --recursive /usr/local
++ runDeps=so:libc.musl-x86_64.so.1
+so:libevent-2.1.so.6
+so:libsasl2.so.3
++ apk add --virtual .memcached-rundeps so:libc.musl-x86_64.so.1 so:libevent-2.1.so.6 so:libsasl2.so.3
+WARNING: Ignoring APKINDEX.70c88391.tar.gz: No such file or directory
+WARNING: Ignoring APKINDEX.5022a8a2.tar.gz: No such file or directory
+(1/1) Installing .memcached-rundeps (0)
+OK: 213 MiB in 61 packages
++ apk del .build-deps
+WARNING: Ignoring APKINDEX.70c88391.tar.gz: No such file or directory
+WARNING: Ignoring APKINDEX.5022a8a2.tar.gz: No such file or directory
+(1/46) Purging .build-deps (0)
+(2/46) Purging coreutils (8.28-r0)
+Executing coreutils-8.28-r0.post-deinstall
+(3/46) Purging cyrus-sasl-dev (2.1.26-r11)
+(4/46) Purging dpkg-dev (1.18.24-r0)
+(5/46) Purging dpkg (1.18.24-r0)
+(6/46) Purging xz (5.2.3-r1)
+(7/46) Purging gcc (6.4.0-r5)
+(8/46) Purging binutils (2.28-r3)
+(9/46) Purging libatomic (6.4.0-r5)
+(10/46) Purging libgomp (6.4.0-r5)
+(11/46) Purging git (2.15.0-r1)
+(12/46) Purging libc-dev (0.7.1-r0)
+(13/46) Purging musl-dev (1.1.18-r3)
+(14/46) Purging libevent-dev (2.1.8-r2)
+(15/46) Purging python2 (2.7.14-r2)
+(16/46) Purging libressl (2.6.3-r0)
+(17/46) Purging linux-headers (4.4.6-r2)
+(18/46) Purging make (4.2.1-r0)
+(19/46) Purging perl-utils (5.26.2-r0)
+(20/46) Purging perl (5.26.2-r0)
+(21/46) Purging tar (1.29-r1)
+(22/46) Purging libcurl (7.59.0-r0)
+(23/46) Purging ca-certificates (20171114-r0)
+Executing ca-certificates-20171114-r0.post-deinstall
+(24/46) Purging libacl (2.2.52-r3)
+(25/46) Purging libattr (2.4.47-r6)
+(26/46) Purging pkgconf (1.3.10-r0)
+(27/46) Purging libbz2 (1.0.6-r6)
+(28/46) Purging xz-libs (5.2.3-r1)
+(29/46) Purging binutils-libs (2.28-r3)
+(30/46) Purging mpc1 (1.0.3-r1)
+(31/46) Purging mpfr3 (3.1.5-r1)
+(32/46) Purging isl (0.18-r0)
+(33/46) Purging gmp (6.1.2-r1)
+(34/46) Purging libstdc++ (6.4.0-r5)
+(35/46) Purging libgcc (6.4.0-r5)
+(36/46) Purging libssh2 (1.8.0-r2)
+(37/46) Purging expat (2.2.5-r0)
+(38/46) Purging pcre2 (10.30-r0)
+(39/46) Purging libffi (3.2.1-r4)
+(40/46) Purging gdbm (1.13-r1)
+(41/46) Purging readline (7.0.003-r0)
+(42/46) Purging ncurses-libs (6.0_p20171125-r0)
+(43/46) Purging ncurses-terminfo (6.0_p20171125-r0)
+(44/46) Purging ncurses-terminfo-base (6.0_p20171125-r0)
+(45/46) Purging sqlite-libs (3.21.0-r0)
+(46/46) Purging libressl2.6-libtls (2.6.3-r0)
+Executing busybox-1.27.2-r7.trigger
+OK: 6 MiB in 15 packages
++ memcached -V
+memcached 1.5.4
+Removing intermediate container c44d64c22987
+ ---> a751fb0a07af
+Step 8/19 : COPY scripts/docker-entrypoint.sh /usr/local/bin/
+ ---> 0f65f9e5d1f3
+Step 9/19 : RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
+ ---> Running in d001fe0b2dee
+Removing intermediate container d001fe0b2dee
+ ---> 8e83f967da75
+Step 10/19 : ENTRYPOINT ["docker-entrypoint.sh","-m 1024"]
+ ---> Running in be3a20c24188
+Removing intermediate container be3a20c24188
+ ---> 92d633fc5562
+Step 11/19 : USER memcache
+ ---> Running in ab4c5b68c4be
+Removing intermediate container ab4c5b68c4be
+ ---> 0d8da7c0716b
+Step 12/19 : EXPOSE 11211
+ ---> Running in 8fd96b1e51a6
+Removing intermediate container 8fd96b1e51a6
+ ---> 287e8c73a6da
+Step 13/19 : CMD ["memcached"]
+ ---> Running in 797aab49cc6e
+Removing intermediate container 797aab49cc6e
+ ---> 2c1d34a59a79
+Step 14/19 : ARG AUTHOR
+ ---> Running in 2ea34a26c1e6
+Removing intermediate container 2ea34a26c1e6
+ ---> 6f01a75c0c33
+Step 15/19 : ARG GIT_SHA=unknown
+ ---> Running in 6644fccb6f02
+Removing intermediate container 6644fccb6f02
+ ---> d5a51cc3761e
+Step 16/19 : ARG GIT_BRANCH=unknown
+ ---> Running in a760c383ae64
+Removing intermediate container a760c383ae64
+ ---> 79e5703baaf2
+Step 17/19 : LABEL author $AUTHOR
+ ---> Running in d7c9ae69cffe
+Removing intermediate container d7c9ae69cffe
+ ---> 80f9bf1f5670
+Step 18/19 : LABEL sha $GIT_SHA
+ ---> Running in 4201293c3a36
+Removing intermediate container 4201293c3a36
+ ---> 3c365399fc71
+Step 19/19 : LABEL branch $GIT_BRANCH
+ ---> Running in e21665e1de93
+Removing intermediate container e21665e1de93
+ ---> e9c255f58d01
+Successfully built e9c255f58d01
+Successfully tagged memcached/memcached:1.5.4
+echo "Image Labels"
+Image Labels
+docker inspect memcached/memcached:1.5.4 |jq -r '.[0].Config.Labels'
+{
+  "author": "tomwillfixit",
+  "branch": "",
+  "sha": ""
+}
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] }
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] // script
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] }
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] // retry
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] }
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] // stage
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] stage
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] { (Test Connectivity)
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] script
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] {
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] sh
+[demo] Running shell script
++ make test
+echo "Starting Test : connectivity_check.sh"
+Starting Test : connectivity_check.sh
+./connectivity_check.sh memcached/memcached:1.5.4 
+Starting Memcached
+a72b70c6436913fb11b4b9117de835c3d8140da334413cabd0b89298af14ff34
+docker: Error response from daemon: driver failed programming external connectivity on endpoint romantic_banach (680e7ae330d40d2fed1352e8c9b20ea7bd81d463490715ecc7a5eed7182f454a): Bind for 0.0.0.0:11211 failed: port is already allocated.
+Verify connection to Memcached
+This will timeout after 2 minutes and the test will fail
+STAT uptime 352
+Connection to Memcached succeeded
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] }
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] // script
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] }
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] // stage
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] stage
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] { (Declarative: Post Actions)
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] sh
+[demo] Running shell script
++ make clean
+docker rm -f memcached || true
+Error: No such container: memcached
+docker rmi -f memcached/memcached:1.5.4 
+Untagged: memcached/memcached:1.5.4
+Deleted: sha256:e9c255f58d010af7394fa61ee86ae574498d33b0a5e51b8572e20b796c35d8be
+Deleted: sha256:3c365399fc7173cfa9c6f95d58f665652b6ac14724cdb3c4389062a612517701
+Deleted: sha256:80f9bf1f5670df4ace4afb5a3ba8b41d868f0423a8c2a0aede7a34a4dd3375c5
+Deleted: sha256:79e5703baaf29a1b0274e9514601dfcc93c509f25d818f5ae8a69ffe1d2727b3
+Deleted: sha256:d5a51cc3761e4716acbc1bae2ef7aed77e5df6a11e6c08955263d5eefc1c1164
+Deleted: sha256:6f01a75c0c33c01319a6bcfd595942ac30ff213824080d7cd28f91d87ab89a9b
+Deleted: sha256:2c1d34a59a79afca5bc3a014d7a12b97380b948e4095b40c0738424710500586
+Deleted: sha256:287e8c73a6da446c0acba5f6530a4c9d9a5b89e8f6cf9462ac3583b81a6bb49b
+Deleted: sha256:0d8da7c0716b889196ba6e0343a2f14960abcd701794eda7c349c3f443726495
+Deleted: sha256:92d633fc5562df8b5d171c99420d1262f87538faf79f9b103531edd5dab9b797
+Deleted: sha256:8e83f967da75172bb164a8f15935da9c283e951fca8779b501544de0c3010a97
+Deleted: sha256:0f65f9e5d1f3a58c314401ce2c37008d0c21751122d079208b5e9ea9334b023e
+Deleted: sha256:a751fb0a07af406c76363b2d98b1e22262d0b88184591a1628d9b779b38edae0
+Deleted: sha256:205c2b2e3e982da2466ea77f6ba7e6dceeee841d872ef3f084256270914584f8
+Deleted: sha256:619120950c47db181c965d0431a6774ce56a230dcaee22a54b4f8e91d63d4ee4
+Deleted: sha256:1623cc6d9ea5c9efc1e20b2ce780d9e84754248930ac0d3ebb40d4a1762cefac
+Deleted: sha256:7605a34efc5c264185e2b6c7e1cfb27785248c6d8de6dacfbfe527b67c5629a9
+Deleted: sha256:f295e2fe931ed6b7c315e430c7ee3be38bbe7e47f0382b4bb1136fb30b10ffc8
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] deleteDir
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] }
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] // stage
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] }
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] // withEnv
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] }
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] // node
+ha:////4BR4GjwIKp2meKdmvYY9tK+oYPZE9cstIWdKxP7gszFPAAAAaB+LCAAAAAAAAP9b85aBtbiIwTG/KF0vKzUvOzOvODlTryCnNB3I0ivPL8pOy8kv18vKT9JLzs8rzs9J1QuHCgaV5jlDhPzyS1IZIICRiYGhoohBKqM0pTg/D64Hh8ICAFt0h+h/AAAA[Pipeline] End of Pipeline
+Finished: SUCCESS
+
