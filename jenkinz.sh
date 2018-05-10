@@ -1,6 +1,6 @@
 #!/bin/bash
 
-version="0.8.1"
+version="0.9"
 
 # This script should be sourced before running any "jenkinz (command)"
 
@@ -34,14 +34,14 @@ function sanity_check
 {
 
 if [ ! -d ${repository} ];then
-    echo "Repository provided does not exist : ${repository}"
-    echo "Exiting"
+    echo "[${script_name}] ... Repository provided does not exist : ${repository}"
+    echo "[${script_name}] ... Exiting"
     kill -INT $$ 
 fi
 
 if [ ! -f ${repository}/${filename} ];then
-    echo "Filename provided does not exist in repository: ${repository}"
-    echo "Exiting"
+    echo "[${script_name}] ... Filename provided does not exist in repository: ${repository}"
+    echo "[${script_name}] ... Exiting"
     kill -INT $$ 
 fi
 
@@ -49,6 +49,8 @@ fi
 
 function jenkinz 
 {
+
+script_name="jenkinz"
 
 #set variables
 stop="false"
@@ -59,7 +61,7 @@ chaos="false"
 repository=""
 filename=""
 number_of_builds=1
-official_jenkins_image="jenkins/jenkins:2.107.2"
+official_jenkins_image="jenkinsci/jenkins:2.107.2"
 tags="false"
 
   # positional args
@@ -112,20 +114,20 @@ fi
 
 if [[ "${chaos}" == "true" ]];then
   if [[ ! -f "./chaos.cb" ]]; then
-    echo "Unable to find default chaos.cb file. Skipping"
+    echo "[${script_name}] ... Unable to find default chaos.cb file. Skipping"
     chaos="false"
   else
-    echo "Using chaos.cb file : ./chaos.cb"
+    echo "[${script_name}] ... Using chaos.cb file : ./chaos.cb"
   fi 
 fi
 
 if [[ -z "${repository}" ]]; then
-    echo "A valid repository must be provided"
+    echo "[${script_name}] ... A valid repository must be provided"
     usage
 fi
 
 if [[ -z "${filename}" ]];then
-    echo "Using default Jenkinsfile"
+    echo "[${script_name}] ... Using default Jenkinsfile"
     filename="Jenkinsfile"
 fi
 
@@ -144,7 +146,7 @@ echo "[] Starting jenkinz v${version}"
 
     # Start ChaosButler here to ensure it is run just once
     if [ ${chaos} == "true" ];then
-        echo "Starting ChaosButler using profile :"
+        echo "[${script_name}] ... Starting ChaosButler using profile :"
         docker cp ./chaos.cb jenkinz:/tmp/chaos.cb
         docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'cat /tmp/chaos.cb'
         docker exec -d -e repository=${repository} jenkinz /bin/bash -c 'chaosbutler /tmp/chaos.cb'
@@ -153,7 +155,7 @@ echo "[] Starting jenkinz v${version}"
     for ((build_num=1; build_num <= ${number_of_builds}; ++build_num));
     do
         ./sync_workspace ${repository} jenkinz-workspace/${repository}
-        echo "Starting Build : ${repository} ${filename} ${build_num}"
+        echo "[${script_name}] ... Starting Build : ${repository} ${filename} ${build_num}"
         start-build ${repository} ${filename} ${build_num}
     done
 }
@@ -172,7 +174,7 @@ image_tag=$(echo ${official_jenkins_image} |cut -d":" -f2)
 # Pull the official image, install some plugins
 docker exec -it jenkinz /bin/bash -c "build_jenkins ${official_jenkins_image}"
 if [ $? -ne 0 ];then
-    echo "Building Image jenkins:${image_tag} FROM ${official_jenkins_image} failed."
+    echo "[${script_name}] ... Building Image jenkins:${image_tag} FROM ${official_jenkins_image} failed."
     kill -INT $$ 
 fi
 
@@ -193,7 +195,7 @@ AGENT_LABELS=($(cat ${repository}/${filename} | grep label | awk -F"'" '{ print 
 
 for LABEL in "${AGENT_LABELS[@]}"
 do
-echo "Starting Build Agent with label : ${LABEL}"
+echo "[${script_name}] ... Starting Build Agent with label : ${LABEL}"
 docker exec -d jenkinz /bin/bash -c "connect ${TOKEN_STRIP} ${LABEL} ${repository}"
 done
 }
@@ -235,18 +237,18 @@ docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt
 echo -e "\nBuild Log :\n" >> build-logs/${repository}.${build_num}.build.log
 docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}"' >> build-logs/${repository}.${build_num}.build.log
 
-echo "Log saved to : build-logs/${repository}.${build_num}.build.log"
+echo "[${script_name}] ... Log saved to : build-logs/${repository}.${build_num}.build.log"
 
 status=$(cat build-logs/${repository}.${build_num}.build.log |tail -1)
 
 if [[ ${status} = *"Finished"* ]]; then 
-    echo "Build Result : ${status}" 
+    echo "[${script_name}] ... Build Result : ${status}" 
 else 
-    echo "Unable to get "Finished" status from build log"
+    echo "[${script_name}] ... Unable to get "Finished" status from build log"
     status="Unable to determine build outcome"
 fi
 
-echo "Stats written to : build-stats/${repository}.${build_num}.stats"
+echo "[${script_name}] ... Stats written to : build-stats/${repository}.${build_num}.stats"
 process_stats build-stats/${repository}.${build_num}.stats
 
 duration=$(( end - start ))
@@ -278,9 +280,8 @@ stop_stats()
 pid_file=$1
 
 stats_pid=$(cat ${pid_file})
-echo "Stopping Stats PID : ${stats_pid}"
+echo "[${script_name}] ... Stopping Stats PID : ${stats_pid}"
 killsub ${stats_pid}
-#kill ${stats_pid} &>/dev/null
 rm ${pid_file}
 
 }
@@ -342,7 +343,7 @@ kill -INT $$
 function total-clean()
 {
 docker-compose -f jenkinz.yml down -v
-echo "Cleaning out jenkinz-workspace"
+echo "[${script_name}] ... Cleaning out jenkinz-workspace"
 rm -rf jenkinz-workspace/*
 kill -INT $$
 }
@@ -363,9 +364,9 @@ IFS=$'\n' read -r -d '' -a tag_array \
   < <(set -o pipefail; curl -L -s --fail -k "$url" | jq -r '."results"[]["name"]' |grep alpine && printf '\0')
 
 if [ -n "${tag_array}" ]; then
-    printf 'jenkins/jenkins:%s\n' "${tag_array[@]}"
+    printf 'jenkinsci/jenkins:%s\n' "${tag_array[@]}"
 else
-    echo "Unable to get a list of tags. This may be due to curl failing or failure to extract the tags from the Dockerfile."
+    echo "[${script_name}] ... Unable to get a list of tags. This may be due to curl failing or failure to extract the tags from the Dockerfile."
     exit 3
 fi
 

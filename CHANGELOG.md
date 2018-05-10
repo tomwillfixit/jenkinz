@@ -1,3 +1,7 @@
+## v0.9
+
+Tests completed against multiple official Jenkins images from the jenkinsci repository in Docker Hub.  Build log now includes the jenkins version and plugin versions used during the build.
+
 ## v0.8
 
 Run your builds against a specific version of the official Jenkins on Docker Hub (Only supports Alpine based images)
@@ -9,12 +13,11 @@ jenkinz list-tags
 
 Example Output : 
 
-jenkins/jenkins:2.60.3-alpine
-jenkins/jenkins:alpine
-jenkins/jenkins:2.60.2-alpine
-jenkins/jenkins:2.60.1-alpine
-jenkins/jenkins:2.46.3-alpine
-
+jenkinsci/jenkins:2.121-alpine
+jenkinsci/jenkins:2.107.3-alpine
+jenkinsci/jenkins:2.120-alpine
+jenkinsci/jenkins:2.119-alpine
+jenkinsci/jenkins:2.118-alpine
 
 Run a build against a specific version :
 

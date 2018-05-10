@@ -1,5 +1,7 @@
 # JenkinZero (jenkinz)
 
+![jenkinz](img/logo.png)
+
 ## What is JenkinZero ?
 
 It's a zero configuration jenkins master and build agent running using "Docker in Docker".  This code is based on the work of Maxfield Stewart from Riot Games : https://github.com/maxfields2000/dockerjenkins_tutorial and was written in my free time.  Feel free to fork it, submit PRs etc.
