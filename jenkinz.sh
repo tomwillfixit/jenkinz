@@ -17,7 +17,7 @@ function usage
     echo "  -f | --filename    	 : Defaults to Jenkinsfile";
     echo "  -b | --builds     	 : Number of Builds";
     echo "  -i | --image     	 : Official Jenkins Master Image (Default : jenkins/jenkins:2.107.2)";
-    echo "  -c | --chaos         : Defaults to the chaos.cb file in jenkinz repository";
+    echo "  -c | --chaos           : Defaults to the chaos.cb file in jenkinz repository";
     echo "  -u | --usage     	 : Usage";
     echo ""
     echo "Helper functions: "
