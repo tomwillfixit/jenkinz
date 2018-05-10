@@ -1,4 +1,3 @@
-# JenkinZero (jenkinz)
 
 ![jenkinz](img/logo.png)
 
@@ -94,16 +93,17 @@ jenkinz list-tags
 
 Example Output : 
 
-jenkins/jenkins:2.60.3-alpine
-jenkins/jenkins:alpine
-jenkins/jenkins:2.60.2-alpine
-jenkins/jenkins:2.60.1-alpine
-jenkins/jenkins:2.46.3-alpine
+jenkinsci/jenkins:2.121-alpine
+jenkinsci/jenkins:2.107.3-alpine
+jenkinsci/jenkins:2.120-alpine
+jenkinsci/jenkins:2.119-alpine
+jenkinsci/jenkins:2.118-alpine
+jenkinsci/jenkins:2.117-alpine
 
 
 Run a build against a specific version :
 
-jenkinz --image jenkinsci/jenkins:2.107.2-alpine --repository demo
+jenkinz --image jenkinsci/jenkins:2.107.3-alpine --repository demo
 
 ```
 
