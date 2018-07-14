@@ -61,7 +61,7 @@ chaos="false"
 repository=""
 filename=""
 number_of_builds=1
-official_jenkins_image="jenkinsci/jenkins:2.107.2"
+official_jenkins_image="jenkins/jenkins:2.107.2"
 tags="false"
 
   # positional args
