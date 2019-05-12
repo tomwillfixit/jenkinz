@@ -21,7 +21,7 @@ ENV FS_ROOT ${FS_ROOT}
 RUN apk update && apk add openjdk8 bash make git jq curl python python-dev py-pip
 
 # The Swarm client jar is used to connect the build agent to the jenkins master
-ADD swarm-client-3.8.jar /opt/swarm.jar
+ADD swarm-client-3.15.jar /opt/swarm.jar
 
 # The jenkins-cli jar is used to manage the build life cycle
 ADD jenkins-cli.jar /opt/jenkins-cli.jar

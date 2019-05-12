@@ -1,17 +1,19 @@
-
+import hudson.model.*
 import jenkins.model.*
 import jenkins.security.*
-import hudson.model.*; //User class
+import jenkins.security.apitoken.*
 
-// This token will be used to query the Jenkins API. 
+// you can change the "admin" name
+// the false is to explicitely ask to not create a user who does not exist yet
+def user = User.get("jenkinz", true)
+def prop = user.getProperty(ApiTokenProperty.class)
+// the name is up to you
+def result = prop.tokenStore.generateNewToken("token-created-by-script")
+user.save()
 
-println "Get auth token"
-
-User u = User.get("jenkinz")  
-ApiTokenProperty t = u.getProperty(ApiTokenProperty.class)  
-def token = t.getApiTokenInsecure()
+// return result.plainValue
 
 println "Write to file : /var/jenkins_home/.auth_token"
 def auth_token = new File('/var/jenkins_home/.auth_token')
-auth_token.write "$token"
-println "$token"
+auth_token.write "$result.plainValue"
+println "$result.plainValue"

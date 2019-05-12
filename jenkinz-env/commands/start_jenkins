@@ -24,12 +24,13 @@ token_end=$((SECONDS+120))
 while [ $SECONDS -lt ${token_end} ]; do
     TOKEN=$(docker exec jenkins /bin/bash -c "cat /var/jenkins_home/.auth_token" 2>/dev/null)
 
-    if [ -z ${TOKEN} ];then
+    if [ -z "${TOKEN}" ];then
         echo "[${script_name}] ... Jenkins starting ..."
     else
         echo -e "\n[${script_name}] ... Auth token created successfully : ${TOKEN}"
-        echo -e "\n[${script_name}] ... Written to : .jenkins.auth_token"
-        echo "${TOKEN}" > .jenkins.auth_token
+        echo -e "\n[${script_name}] ... Written to : /tmp/.jenkins.auth_token inside jenkinz container"
+	echo "DEBUG : ${TOKEN}"
+        echo "${TOKEN}" > /tmp/.jenkins.auth_token
         break 
     fi
     sleep 5

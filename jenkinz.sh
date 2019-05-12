@@ -140,7 +140,7 @@ echo "[] Starting jenkinz v${version}"
     start-agent ${repository} ${filename}
 
     # This only needs to be created once regardless of the number of agents and
-    # uses a copy of the respository code copied to jenkinz-workspace/${repository}
+    # uses a copy of the repository code copied to jenkinz-workspace/${repository}
     ./sync_workspace ${repository} jenkinz-workspace/${repository} 
     create-pipeline ${repository} ${filename} ${build_num}
 
@@ -187,7 +187,7 @@ function start-agent()
 repository=$1
 filename=$2
 
-TOKEN=$(docker exec -it jenkinz /bin/bash -c "cat .jenkins.auth_token")
+TOKEN=$(docker exec -it jenkinz /bin/bash -c "cat /tmp/.jenkins.auth_token")
 # Remove carriage return from TOKEN variable
 TOKEN_STRIP=$(echo ${TOKEN} |sed 's/\r//g')
 
@@ -196,6 +196,7 @@ AGENT_LABELS=($(cat ${repository}/${filename} | grep label | awk -F"'" '{ print 
 for LABEL in "${AGENT_LABELS[@]}"
 do
 echo "[${script_name}] ... Starting Build Agent with label : ${LABEL}"
+echo "DEBUG : Connecting with ${TOKEN_STRIP} ${LABEL} ${repository}"
 docker exec -d jenkinz /bin/bash -c "connect ${TOKEN_STRIP} ${LABEL} ${repository}"
 done
 }
