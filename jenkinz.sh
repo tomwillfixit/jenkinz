@@ -16,7 +16,7 @@ function usage
     echo "  -r | --repository      : Name of the repository containing the Jenkinsfile";
     echo "  -f | --filename    	 : Defaults to Jenkinsfile";
     echo "  -b | --builds     	 : Number of Builds";
-    echo "  -i | --image     	 : Official Jenkins Master Image (Default : jenkins/jenkins:2.107.2)";
+    echo "  -i | --image     	 : Official Jenkins Master Image (Default : jenkins/jenkins:2.164.3)";
     echo "  -c | --chaos           : Defaults to the chaos.cb file in jenkinz repository";
     echo "  -u | --usage     	 : Usage";
     echo ""
@@ -61,7 +61,7 @@ chaos="false"
 repository=""
 filename=""
 number_of_builds=1
-official_jenkins_image="jenkins/jenkins:2.107.2"
+official_jenkins_image="jenkins/jenkins:2.164.3"
 tags="false"
 
   # positional args
