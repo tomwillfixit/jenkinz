@@ -1,4 +1,4 @@
-name: CI
+name: jenkinz_ci
 
 on:
   push:
