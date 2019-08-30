@@ -18,12 +18,12 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
-    - name: Run a multi-line script
+    - name: Run jenkinz with Jenkins image version ${{ matrix.jenkins_version }}
       run: |
         source jenkinz.sh
         jenkinz --image jenkins/jenkins:${{ matrix.jenkins_version }} -r demo-nginx
         
     - uses: actions/upload-artifact@master
       with:
-        name: build-log
+        name: build-log-${{ matrix.jenkins_version }}
         path: build-logs/demo-nginx.1.build.log
