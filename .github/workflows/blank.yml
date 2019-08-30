@@ -18,3 +18,7 @@ jobs:
       run: |
         source jenkinz.sh
         jenkinz -r demo-nginx
+    - uses: actions/upload-artifact@master
+      with:
+        name: build-log
+        path: build-logs/demo-nginx.1.build.log
