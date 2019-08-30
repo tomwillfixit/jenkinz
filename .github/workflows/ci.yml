@@ -17,7 +17,7 @@ jobs:
     - name: Setup trivy and start scan
       run: |
        ./setup_trivy
-       trivy --refresh
+       trivy --refresh --quiet
        for image in 2.176.3 2.192 latest
        do
            trivy --exit-code 0 --severity HIGH jenkins/jenkins:${image} |tee -a ${image}.trivy.log
