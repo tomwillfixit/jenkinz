@@ -212,7 +212,9 @@ repository=$1
 filename=$2
 build_num=$3
 
-docker exec -it jenkinz /bin/bash -c "create_pipeline jenkins ${repository} ${filename}"
+#docker exec -it jenkinz /bin/bash -c "create_pipeline jenkins ${repository} ${filename}"
+# DEBUGGING
+docker exec jenkinz /bin/bash -c "create_pipeline jenkins ${repository} ${filename}"
 
 }
 
@@ -226,9 +228,11 @@ start_stats ${repository} ${build_num}
 
 start=$SECONDS
 
-docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 build "${repository}"'
+#docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 build "${repository}"'
+#docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'watch-build "${repository}"'
 
-docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'watch-build "${repository}"'
+docker exec -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 build "${repository}"'
+docker exec -e repository=${repository} jenkinz /bin/bash -c 'watch-build "${repository}"'
 
 end=$SECONDS
 
@@ -236,11 +240,11 @@ stop_stats build-stats/${repository}.${build_num}.pid
 
 echo "Generate Post Build Report"
 echo -e "\nJenkins Version :\n" > build-logs/${repository}.${build_num}.build.log
-docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 version' >> build-logs/${repository}.${build_num}.build.log
+docker exec -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 version' >> build-logs/${repository}.${build_num}.build.log
 echo -e "\nPlugin Versions :\n" >> build-logs/${repository}.${build_num}.build.log
-docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 list-plugins' >> build-logs/${repository}.${build_num}.build.log
+docker exec -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 list-plugins' >> build-logs/${repository}.${build_num}.build.log
 echo -e "\nBuild Log :\n" >> build-logs/${repository}.${build_num}.build.log
-docker exec -it -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}"' >> build-logs/${repository}.${build_num}.build.log
+docker exec -e repository=${repository} jenkinz /bin/bash -c 'java -jar /opt/jenkins-cli.jar -noKeyAuth -s http://0.0.0.0:8080 console "${repository}"' >> build-logs/${repository}.${build_num}.build.log
 
 echo "[${script_name}] ... Log saved to : build-logs/${repository}.${build_num}.build.log"
 
