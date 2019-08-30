@@ -10,11 +10,11 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-16.04
+    runs-on: ubuntu-18.04
     
     steps:
     - uses: actions/checkout@master
     - name: Run a multi-line script
       run: |
         source jenkinz.sh
-        jenkinz -r demo
+        jenkinz -r demo-nginx
