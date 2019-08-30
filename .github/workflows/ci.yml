@@ -31,5 +31,8 @@ jobs:
       with:
         name: "build-log-${{ matrix.jenkins_version }}"
         path: build-logs/demo-nginx.1.build.log
+        
+    - uses: actions/upload-artifact@master
+      with:
         name: "trivy-log-${{ matrix.jenkins_version }}"
         path: ${{ matrix.jenkins_version }}.trivy.log
