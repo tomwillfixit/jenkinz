@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    name: "Testing Jenkins version ${{ matrix.jenkins_version }}  on OS version ${{ matrix.os }}"
+    name: Testing Jenkins version ${{ matrix.jenkins_version }}  on OS version ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -18,7 +18,7 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
-    - name: "Run jenkinz with Jenkins image version ${{ matrix.jenkins_version }}"
+    - name: start jenkinz build
       run: |
         source jenkinz.sh
         jenkinz --image jenkins/jenkins:${{ matrix.jenkins_version }} -r demo-nginx
