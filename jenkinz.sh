@@ -172,7 +172,9 @@ docker-compose -f jenkinz.yml up -d
 image_tag=$(echo ${official_jenkins_image} |cut -d":" -f2)
 
 # Pull the official image, install some plugins
-docker exec -it jenkinz /bin/bash -c "build_jenkins ${official_jenkins_image}"
+#docker exec -it jenkinz /bin/bash -c "build_jenkins ${official_jenkins_image}"
+# DEBUGGING
+docker exec jenkinz /bin/bash -c "build_jenkins ${official_jenkins_image}"
 if [ $? -ne 0 ];then
     echo "[${script_name}] ... Building Image jenkins:${image_tag} FROM ${official_jenkins_image} failed."
     kill -INT $$ 
