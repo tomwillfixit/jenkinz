@@ -191,7 +191,7 @@ function start-agent()
 repository=$1
 filename=$2
 
-TOKEN=$(docker exec -it jenkinz /bin/bash -c "cat /tmp/.jenkins.auth_token")
+TOKEN=$(docker exec jenkinz /bin/bash -c "cat /tmp/.jenkins.auth_token")
 # Remove carriage return from TOKEN variable
 TOKEN_STRIP=$(echo ${TOKEN} |sed 's/\r//g')
 
