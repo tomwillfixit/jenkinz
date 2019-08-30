@@ -21,7 +21,7 @@ jobs:
     - name: Scan Jenkins Image using trivy
       run: |
        ./setup_trivy
-       trivy --exit-code 0 --severity HIGH --quiet --auto-refresh jenkins/jenkins:${{ matrix.jenkins_version }} |tee -a ${{ matrix.jenkins_version }}.trivy.log       
+       trivy --exit-code 0 --severity HIGH --auto-refresh jenkins/jenkins:${{ matrix.jenkins_version }} |tee -a ${{ matrix.jenkins_version }}.trivy.log       
     - name: Start Jenkinz Build
       run: |
         source jenkinz.sh
