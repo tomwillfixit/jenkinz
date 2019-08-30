@@ -20,7 +20,7 @@ jobs:
     - uses: actions/checkout@master
     - name: start trivy security scan
       run: |
-       setup_trivy
+       ./setup_trivy
        ./trivy --exit-code 0 --severity HIGH --quiet --auto-refresh jenkins/jenkins:${{ matrix.jenkins_version }}
        
     - name: start jenkinz build
