@@ -290,7 +290,7 @@ pid_file=$1
 
 stats_pid=$(cat ${pid_file})
 echo "[${script_name}] ... Stopping Stats PID : ${stats_pid}"
-killsub ${stats_pid}
+#killsub ${stats_pid}
 rm ${pid_file}
 
 }
