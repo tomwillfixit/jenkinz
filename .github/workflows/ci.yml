@@ -15,7 +15,7 @@ jobs:
       matrix:
         jenkins_version: [2.176.3, 2.192, latest]
         
-   steps:
+    steps:
     - name: Setup trivy and start scan
       run: |
        ./setup_trivy
