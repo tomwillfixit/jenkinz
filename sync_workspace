@@ -15,5 +15,5 @@ chmod 777 ${dest}
 shopt -s dotglob;
 cp -r ${src}/* ${dest}
 chmod -R 777 ${dest}
-chown -R ${USER}:${USER} ${dest}
+#chown -R ${USER}:${USER} ${dest}
 
