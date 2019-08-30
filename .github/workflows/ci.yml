@@ -9,18 +9,19 @@ on:
 
 jobs:
   test:
-    name: Test on OS version ${{ matrix.os }}
+    name: Testing Jenkins version ${{ matrix.jenkins_version }}  on OS version ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-16.04, ubuntu-18.04]
+        jenkins_version: [2.176.3, 2.192, latest]
+        os: [ubuntu-16.04]
     
     steps:
     - uses: actions/checkout@master
     - name: Run a multi-line script
       run: |
         source jenkinz.sh
-        jenkinz -r demo-nginx
+        jenkinz --image jenkins/jenkins:${{ matrix.jenkins_version }} -r demo-nginx
         
     - uses: actions/upload-artifact@master
       with:
