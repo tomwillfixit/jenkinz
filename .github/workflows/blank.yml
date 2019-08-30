@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-16.04
     
     steps:
+    - uses: actions/checkout@master
     - name: Run a multi-line script
       run: |
         source jenkinz.sh
