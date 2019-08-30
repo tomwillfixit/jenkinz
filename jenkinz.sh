@@ -179,7 +179,9 @@ if [ $? -ne 0 ];then
 fi
 
 # Start container based on official image + plugins 
-docker exec -it jenkinz /bin/bash -c "start_jenkins jenkins:${image_tag}"
+#docker exec -it jenkinz /bin/bash -c "start_jenkins jenkins:${image_tag}"
+# DEBUGGING
+docker exec jenkinz /bin/bash -c "start_jenkins jenkins:${image_tag}"
 }
 
 function start-agent()
