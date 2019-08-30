@@ -14,6 +14,7 @@ jobs:
     strategy:
       matrix:
         jenkins_version: [2.176.3, 2.192, latest]
+        
    steps:
     - name: Setup trivy and start scan
       run: |
