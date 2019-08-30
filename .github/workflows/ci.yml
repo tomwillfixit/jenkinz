@@ -18,12 +18,11 @@ jobs:
     
     steps:
     - uses: actions/checkout@master
-    - name: start trivy security scan
+    - name: Scan Jenkins Image using trivy
       run: |
        ./setup_trivy
-       trivy --exit-code 0 --severity HIGH --quiet --auto-refresh jenkins/jenkins:${{ matrix.jenkins_version }}
-       
-    - name: start jenkinz build
+       trivy --exit-code 0 --severity HIGH --quiet --auto-refresh jenkins/jenkins:${{ matrix.jenkins_version }} |tee -a ${{ matrix.jenkins_version }}.trivy.log       
+    - name: Start Jenkinz Build
       run: |
         source jenkinz.sh
         jenkinz --image jenkins/jenkins:${{ matrix.jenkins_version }} -r demo-nginx
@@ -32,3 +31,5 @@ jobs:
       with:
         name: "build-log-${{ matrix.jenkins_version }}"
         path: build-logs/demo-nginx.1.build.log
+        name: "trivy-log-${{ matrix.jenkins_version }}"
+        path: ${{ matrix.jenkins_version }}.trivy.log
