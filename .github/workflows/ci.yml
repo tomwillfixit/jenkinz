@@ -8,6 +8,19 @@ on:
   - cron: 0 7 * * 1-5
 
 jobs:
+  scan:
+    name: Scan Jenkins Image using trivy
+    runs-on: ubuntu-16.04
+    strategy:
+      matrix:
+        jenkins_version: [2.176.3, 2.192, latest]
+   steps:
+    - name: Setup trivy and start scan
+      run: |
+       ./setup_trivy
+       trivy --refresh
+       trivy --exit-code 0 --severity HIGH jenkins/jenkins:${{ matrix.jenkins_version }} |tee -a ${{ matrix.jenkins_version }}.trivy.log
+       
   test:
     name: Testing Jenkins version ${{ matrix.jenkins_version }}  on OS version ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
@@ -17,11 +30,7 @@ jobs:
         os: [ubuntu-16.04]
     
     steps:
-    - uses: actions/checkout@master
-    - name: Scan Jenkins Image using trivy
-      run: |
-       ./setup_trivy
-       trivy --exit-code 0 --severity HIGH --auto-refresh jenkins/jenkins:${{ matrix.jenkins_version }} |tee -a ${{ matrix.jenkins_version }}.trivy.log       
+    - uses: actions/checkout@master      
     - name: Start Jenkinz Build
       run: |
         source jenkinz.sh
