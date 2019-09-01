@@ -1,0 +1,41 @@
+name: nightly_jenkinz_ci
+
+on:
+  schedule:
+  - cron: 5 20 * * 1-5
+
+jobs:
+  scan:
+    name: Scan Jenkins Image using trivy
+    runs-on: ubuntu-16.04
+        
+    steps:
+    - uses: actions/checkout@master
+    - name: Setup trivy and start scan
+      run: |
+       ./setup_trivy
+       trivy --refresh --quiet
+       for image in 2.176.3 2.192 latest
+       do
+           trivy --exit-code 0 --severity HIGH jenkins/jenkins:${image} |tee -a ${image}.trivy.log
+       done
+       
+  test:
+    name: Testing Jenkins version ${{ matrix.jenkins_version }}  on OS version ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        jenkins_version: [2.176.3, 2.192, latest]
+        os: [ubuntu-16.04]
+    
+    steps:
+    - uses: actions/checkout@master      
+    - name: Start Jenkinz Build
+      run: |
+        source jenkinz.sh
+        jenkinz --image jenkins/jenkins:${{ matrix.jenkins_version }} -r demo-nginx
+        
+    - uses: actions/upload-artifact@master
+      with:
+        name: "build-log-${{ matrix.jenkins_version }}"
+        path: build-logs/demo-nginx.1.build.log
