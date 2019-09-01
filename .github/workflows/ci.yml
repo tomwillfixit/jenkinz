@@ -1,11 +1,11 @@
 name: jenkinz_ci
 
 on:
- schedule:
-  - cron: 0 15 * * 1-5
- push:
-   branches:
-   - master
+  schedule:
+  - cron: 0 20 * * 1-5
+  push:
+    branches:
+    - master
 
 jobs:
   scan:
