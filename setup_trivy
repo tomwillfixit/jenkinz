@@ -9,6 +9,8 @@ sudo apt-get install trivy
 
 echo "debugging"
 
-ip addr 
+docker ps
 
-sleep 180
+docker version
+
+docker info
