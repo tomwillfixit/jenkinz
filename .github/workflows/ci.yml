@@ -2,7 +2,7 @@ name: jenkinz_ci
 
 on:
  schedule:
-  - cron: 0 14 * * 1-5
+  - cron: 0 15 * * 1-5
  push:
    branches:
    - master
