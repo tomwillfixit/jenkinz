@@ -1,8 +1,9 @@
 name: jenkinz_ci
 
-on: [push: 
-       branches: 
-       - master]
+on: [
+push: 
+  branches: 
+  - master]
 
 #on:
  # push:
